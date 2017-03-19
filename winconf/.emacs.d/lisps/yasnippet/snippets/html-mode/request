@@ -1,0 +1,10 @@
+#name : Request (only in mootools)
+#by : fancyoung
+# --
+new Request({
+    url: '$1',
+    method: '${2:get}',
+    onSuccess: function(result){
+	$0
+    }
+}).send();

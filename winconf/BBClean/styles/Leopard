@@ -1,0 +1,225 @@
+style.name: Clearlooks Black
+style.author: Xofia
+style.date: Thursday, April 20, 2006
+style.credits: based on the "Clearlooks 0.6 Black" MSStyle by hsn
+style.comments: looks best with bbLean+bbLeanSkin and bbLeanBar.tasks.drawBorder
+enabled in bbLeanBar.rc
+
+!rootCommand: bsetbg -full nihlistic_smile_by_TheMistressPoptart.png
+rootCommand: bsetbg -solid #373737
+
+*.font: Segoe UI
+*.fontWeight: normal
+*.fontHeight: 10
+
+menu.title.fontWeight: normal
+
+menu.title.appearance:flat solid border
+#menu.title.appearance: raised gradient vertical border
+menu.title.color1: #FFFFFF
+menu.title.color2: #FFFFFF
+menu.title.borderWidth: 0
+menu.title.borderColor: #FFFFFF
+menu.title.foregroundColor: #000000
+menu.title.textColor: #FFFFFF
+menu.title.alignment: center
+menu.title.marginWidth: 0
+
+menu.frame.appearance: flat solid border
+menu.frame.backgroundColor: #Ffffff
+menu.frame.borderWidth: 1
+menu.frame.borderColor: #dedede
+menu.frame.foregroundColor: #2F2E1C
+menu.frame.textColor: #000000
+menu.frame.shadowColor: #efefef
+menu.frame.shadowX: 0 
+menu.frame.shadowY: 1
+menu.frame.disabledColor: #CCCCCC
+menu.frame.alignment: left
+menu.frame.marginWidth: 0
+
+menu.separator.color:aaaaaa
+menu.separator.margin:-60
+
+menu.active.appearance: flat gradient vertical border
+menu.active.color1: #4190ec
+menu.active.color2: #267aeb
+menu.active.borderWidth: 0
+menu.active.borderColor: #050505
+menu.active.foregroundColor: #FFFFFF
+menu.active.textColor: #FFFFFF
+
+menu.bullet: Mercury 
+menu.bullet.position: right
+
+slit.appearance: flat solid border
+slit.backgroundColor: #2d2d2d
+slit.borderWidth: 1
+slit.borderColor: #666666
+slit.marginWidth: 0
+
+! note: it's unfortunate that inactive window tabs are styled according to the
+toolbar, because the actual msstyle taskbar is a solid #EEEBE6 instead of the
+gradient used on the tabs
+
+toolbar.appearance: flat gradient vertical border
+toolbar.color1: #ffffff
+toolbar.color2: #eeeeee
+#toolbar.color1: #eeeeee
+#toolbar.color2: #cacaca
+toolbar.borderWidth: 0
+toolbar.borderColor: #aFafaf
+toolbar.alignment: center
+toolbar.textColor: #000000
+toolbar.shadowColor: #bfbfbf
+toolbar.shadowX: 1
+toolbar.shadowY: 1
+toolbar.marginWidth: 0
+
+
+toolbar.label.appearance: parentrelative
+!toolbar.label.appearance: flat gradient vertical border
+!任务栏标题显示的边缘宽度
+!toolbar.label.marginWidth: 2
+!toolbar.Label.color1: #4580c8
+!toolbar.Label.color2: #1553aa
+toolbar.Label.textColor: #ffffff
+toolbar.Label.shadowColor: #afafaf
+toolbar.Label.shadowX: 1
+toolbar.Label.shadowY: 1
+
+! note: the active window tab (windowLabel) on the toolbar is sunken in the
+actual msstyle taskbar, but bb sunken both darkens the top and brightens the
+bottom; thus, I decided to make it flat
+!任务栏程序窗口标题显示
+toolbar.windowLabel.appearance: flat gradient vertical border
+toolbar.windowLabel.color1: #4190ec
+toolbar.windowLabel.color2: #267aeb
+toolbar.windowLabel.borderWidth: 0
+toolbar.windowLabel.borderColor: #78726B
+toolbar.windowLabel.textColor: #ffffff
+toolbar.windowLabel.shadowColor: white 
+toolbar.windowLabel.shadowX: 0
+toolbar.windowLabel.shadowY: 0
+
+toolbar.clock.appearance: parentrelative
+
+toolbar.button.appearance:flat gradient vertical border
+toolbar.button.color1: #ffffff
+toolbar.button.color2: #E1DAD3
+toolbar.button.borderWidth: 0
+toolbar.button.borderColor: #8F8173
+toolbar.button.foregroundColor: #111111
+toolbar.button.marginWidth: 6
+
+toolbar.button.pressed.appearance: sunken gradient vertical border
+toolbar.button.pressed.color1: #ECE8E4
+toolbar.button.pressed.color2: #DFD6CF
+toolbar.button.pressed.borderWidth: 1
+toolbar.button.pressed.borderColor: #8F8173
+toolbar.button.pressed.foregroundColor: #111111
+
+window.fontWeight: bold
+window.fontHeight: 14
+window.alignment: center
+
+window.title.marginWidth: 1
+
+window.title.focus.appearance: raised gradient vertical border
+window.title.focus.color1: #444444
+window.title.focus.color2: #202020
+window.title.focus.borderWidth: 1
+window.title.focus.borderColor: #232527
+
+window.title.unfocus.appearance: raised gradient vertical border
+window.title.unfocus.color1: #F2EFEB
+window.title.unfocus.color2: #D6CCC4
+window.title.unfocus.borderWidth: 1
+window.title.unfocus.borderColor: #3D3A38
+
+window.label.marginWidth: 2
+
+window.label.focus.appearance: parentrelative
+window.label.focus.textColor: #C8C8C8
+
+window.label.unfocus.appearance: parentrelative
+window.label.unfocus.textColor: #8C8B88
+
+window.button.marginWidth: 4
+
+window.button.focus.appearance: raised gradient vertical border
+window.button.focus.color1: #4A4A4A
+window.button.focus.color2: #282828
+window.button.focus.borderWidth: 1
+window.button.focus.borderColor: #000000
+window.button.focus.foregroundColor: #ABABAB
+
+window.button.unfocus.appearance: raised gradient vertical border
+window.button.unfocus.color1: #ECE8E4
+window.button.unfocus.color2: #DFD6CF
+window.button.unfocus.borderWidth: 1
+window.button.unfocus.borderColor: #8F8173
+window.button.unfocus.foregroundColor: #111111
+
+window.button.pressed.appearance: sunken gradient vertical border
+window.button.pressed.color1: #4A4A4A
+window.button.pressed.color2: #282828
+window.button.pressed.borderWidth: 1
+window.button.pressed.borderColor: #000000
+window.button.pressed.foregroundColor: #ABABAB
+
+window.frame.borderWidth: 1
+window.frame.focus.borderColor: #3D3A38
+window.frame.unfocus.borderColor: #3D3A38
+
+window.handleHeight: 0
+
+!window.handle.focus.appearance: parentrelative
+
+!window.handle.unfocus.appearance: parentrelative
+
+!window.grip.focus.appearance: parentrelative
+
+!window.grip.unfocus.appearance: parentrelative
+
+! note: styling the separator only works with the bblean mod; uncommented lines
+are styled like startmenu, commented lines are styled like rightclick menu
+
+menu.separator.borderColor: #999999
+!menu.separator.borderColor: #AA9C8F
+menu.separator.shadowColor: #999999
+!menu.separator.shadowColor: #E0D8D0
+menu.separator.borderWidth: 1
+
+! -- 3dc theme start --
+6976897
+9411754
+14607337
+14607337
+12568785
+13687008
+2960685
+2960685
+13158600
+13160660
+8421504
+0
+3618615
+5592405
+8421504
+15199215
+15199215
+8948620
+13160660
+15199215
+0
+0
+13160660
+2960685
+16777215
+12513791
+0
+16777215
+0
+2960685
+15199215

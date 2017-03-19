@@ -1,0 +1,6 @@
+#name : {% filter %}...{% endfilter %}
+#group : filter
+# --
+{% filter $1 %}
+$0
+{% endfilter %}

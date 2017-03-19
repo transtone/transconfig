@@ -1,0 +1,11 @@
+#contributor : transtone <zm3345@126.com>
+#name : event function 'IO'
+#group : event
+# --
+IO({
+    url:'$1',
+    type:'${post}',
+    data: ${S.IO.serialize('$2')},
+    jsonp:"jsoncallback",
+    success:function(data){$3}
+});

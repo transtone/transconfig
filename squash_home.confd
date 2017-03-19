@@ -1,0 +1,16 @@
+# /etc/conf.d/squash_home
+
+# SQFS_DIRNAME points to the directory that will contain the sqfs
+SQFS_DIRNAME="/sqfs"
+
+# Leave HOME_RW empty for use with tmpfs, a ram-based filesystem,
+# This is recommended unless you are short of RAM
+HOME_RW=""
+
+# 用squashfs将镜像挂载到HOME_RO
+HOME_RO="/sqfs/stone/ro"
+
+# 用aufs将home挂载到 HOME_AUFS 
+HOME_AUFS="/sqfs/stone/home"
+
+SQFS_FF="/sqfs/stone/home/.mozilla/firefox/wnfptovk.default"

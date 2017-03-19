@@ -1,0 +1,25 @@
+* 号码回收操作
+
+** 号码回收涉及的函数：
+
+** 号码回收涉及的表
+*** 话务相关
+s_400nums
+s_400numuser
+s_
+*** 费率相关
+
+
+** 号码回收涉及的备份操纵
+
+
+* 话费统计调整
+
+** 一切与开通时间相关
+   
+** 记录充值前后的余额
+
+** 月账单与年账单
+   
+delete from p_phone_rate where target = (select target from s_400nums where eps400='')
+update s_400nums set flag=0,target=null,proxyid=null,applytime=null,operatorid=null,pausecause=null where eps400='' 

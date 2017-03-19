@@ -1,0 +1,6 @@
+#name : {% autoescape %}...{% endautoescape %}
+#group : autoescape
+# --
+{% autoescape ${true} %}
+$0
+{% endautoescape %}

@@ -1,0 +1,6 @@
+Download the artwiz fontpack from
+
+	http://xoblite.net/  -> [fonts]
+
+and install them to the windows fonts folder
+from 'controls->fonts'

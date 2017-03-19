@@ -1,0 +1,7 @@
+net-wireless/rtl8192su-firmware
+#app-emulation/qemu
+=sys-devel/gcc-4.8.1
+dev-java/sun-jdk
+=dev-libs/glib-2.36.2
+#app-editors/emacs-vcs
+sys-kernel/aufs-sources

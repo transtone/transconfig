@@ -1,0 +1,26 @@
+-------------------
+iShut version 2.0
+by beric and jed717ph
+-------------------
+Argument Modes
+-------------------
+iShut has 5 different modes; Shutdown, Logoff, Restart, Sleep, and All.
+The default mode is All but you can change it but changing the argument in a shortcut or through your dock.
+
+The arguments are;
+
+-s  <=Shutdown
+-l  <=Logoff
+-r  <=Reboot
+-h  <=Sleep\Hibernate
+-a  <=All
+
+An example for a shortcut to Logoff mode when you run iShut is "C:\iShut\iShut.exe" -l
+-------------------
+Changeing Apperences
+-------------------
+BACKGROUND IMAGES - To change the background image for all of the different iShut states, just edit the settings.ini file in the iShut directory to correspond to a folder in the ".../iShut/Skins/" directory.
+
+FONTS - To change the font you also edit the setttings.ini. It should change the font for both the description and the button text, however some visual styles override the button font.
+
+CHANGING TEXT - To change the text of all the buttons and all the argument description text, just edit the settings.ini file.

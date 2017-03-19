@@ -1,0 +1,15 @@
+# ---------------------------------------------
+# bblean 1.16 - plugin.rc - the plugins to load
+
+# - Items may be added, enabled or disabled from
+# - the config menu as needed. Removal is left to
+# - manual editing.
+
+# - the BB hotkeys, see bbkeys.rc
+plugins\bbKeys\bbKeys.dll
+
+# - integrated toolbar with tasks and tray
+! plugins\bbLeanBar\bbLeanBar.dll
+
+! plugins\bbMemLimiter\bbMemLimiter.dll
+plugins\BBInterface\BBInterface.dll

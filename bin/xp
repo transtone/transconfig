@@ -1,0 +1,2 @@
+rdesktop -A 192.168.8.88 -u Administrator -p sports
+

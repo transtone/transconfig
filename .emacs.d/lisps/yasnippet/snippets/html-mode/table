@@ -1,0 +1,6 @@
+#name : <table ...>...</table>
+#group : table
+# --
+<table>
+   ${<caption>$1</caption>$0}
+</table>

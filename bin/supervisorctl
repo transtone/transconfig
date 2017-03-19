@@ -1,0 +1,2 @@
+#!/bin/sh
+runinenv ~/sites/pyenv supervisorctl

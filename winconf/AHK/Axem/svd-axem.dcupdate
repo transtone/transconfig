@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<Local>
+       <!-- basic info to display in updater, including using the program exe to get icon -->
+       <Label>Axem by Justice</Label>
+       <IconFile>Axem.exe</IconFile>
+       <!-- version info of locally installed current version, and simple remote version file -->
+       <Version>1.50</Version>
+     <VersionFileRemotehttps://bitbucket.org/svandragt/axem/raw/c06508ff7ab7/svd-axem.dcupdate</VersionFileRemote>
+       <WebPage>http://justice.dcmembers.com</WebPage>
+      <!-- ok how to conduct updates; could be: "run" (download and run program), or "visit" (visit website), or "unzip" (download zip and unpack over files) -->
+       <UpdateMethod>unzip</UpdateMethod>
+       <CloseForUpdate>Axem.exe</CloseForUpdate>
+<UpdateFile>http://trac2.assembla.com/svd-autohotkey/browser/trunk/Axem/Axem.zip?format=raw</UpdateFile>
+</Local>

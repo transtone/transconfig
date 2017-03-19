@@ -1,0 +1,16 @@
+##
+## 32-bit Mingw-w64 repository mirrorlist
+## Changed on 2014-11-15
+##
+##中国科学技术大学开源软件镜像
+Server = http://mirrors.ustc.edu.cn/msys2/REPOS/MINGW/i686
+##北京理工大学镜像
+Server = http://mirror.bit.edu.cn/msys2/REPOS/MINGW/i686
+##日本北陆先端科学技术大学院大学 sourceforge 镜像
+Server = http://jaist.dl.sourceforge.net/project/msys2/REPOS/MINGW/i686
+##The UK Mirror Service Sourceforge mirror
+Server = http://www.mirrorservice.org/sites/download.sourceforge.net/pub/sourceforge/m/ms/msys2/REPOS/MINGW/i686
+## Primary
+Server = ftp://148.251.42.38/MINGW/i686
+## Sourceforge.net
+Server = http://downloads.sourceforge.net/project/msys2/REPOS/MINGW/i686

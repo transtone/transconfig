@@ -1,0 +1,6 @@
+#name : {% with %}...{% endwith %}
+#group : with
+# --
+{% with $1 %}
+$0
+{% endwith %}

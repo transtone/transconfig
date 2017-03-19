@@ -1,0 +1,14 @@
+# /etc/conf.d/squash_ff
+
+# SQFS_DIRNAME points to the directory that will contain the sqfs
+SQFS_DIRNAME="/sqfs"
+
+# Leave FF_RW empty for use with tmpfs, a ram-based filesystem,
+# This is recommended unless you are short of RAM
+FF_RW=""
+
+# 用squashfs将镜像挂载到FF_RO
+FF_RO="/sqfs/firefox"
+
+# 用aufs将porage挂载到 PORTAGE_AUFS 
+FF_AUFS="/home/zhou/.mozilla"

@@ -1,0 +1,43 @@
+
+    -------------------------------------------------------------------
+
+    bbSlit is a plugin for Blackbox for Windows.
+
+    Copyright 2003-2009 The Blackbox for Windows Development Team
+    http://bb4win.sourceforge.net/
+
+    bbSlit is free software, released under the GNU General
+    Public License (GPL version 2). For details see:
+
+        http://www.fsf.org/licenses/gpl.html
+bbSlit_108_00
+
+    THIS PROGRAM IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+    BUT WITHOUT ANY WARRANTY; WITHOUT EVEN THE IMPLIED WARRANTY OF
+    MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+
+    -------------------------------------------------------------------
+
+    bbSlit is a container for other plugins. Its purpose is
+    to keep these together in a common place.
+
+
+    How to load a plugin into bbSlit: 
+    ---------------------------------
+    - Load bbSlit.
+    - Load the plugin.
+    - Activate the plugin in bb4win_mod's "Settings -> Plugins -> In Slit"
+      menu.
+    - Tell the plugin to "use" or "be docked to" the Slit from its own
+      configuration menu.
+
+    Note that bbSlit is invisible as long as it is empty.
+
+
+    Mouse Clicks:
+    -------------
+    Ctrl-Right-Click:       Show Settings Menu
+    Ctrl-Left-Drag:         Drag Slit elsewhere
+
+
+    -------------------------------------------------------------------

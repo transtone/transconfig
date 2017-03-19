@@ -1,0 +1,129 @@
+dev-vcs/git subversion highlight
+dev-vcs/subversion -dso perl
+dev-lang/ghc ghcquickbuild binary
+dev-lang/python sqlite
+app-emulation/qemu spice qemu-ifup fdt
+app-emulation/libvirt iscsi kvm lvm nfs virtualbox
+app-emulation/aqemu  kvm
+app-emulation/spice gui sasl client
+app-emulation/virtualbox-bin rdesktop-vrdp -chm vboxwebsrv 
+app-emulation/virtualbox extensions  -python sdk -java
+app-emulation/wine ldap -abi_x86_64 -mono -oss gphoto2 odbc custom-cflags -test -prelink -v4l opengl
+app-portage/layman git subversion mercurial
+app-portage/eix strong-optimization optimization tools
+app-misc/screen multiuser nethack
+sci-geosciences/googleearth system-qt
+dev-lang/php truetype pdo cjk apache2 exif fpm sockets filter unicode cgi curl discard-path force-cgi-redirect bzip2 crypt ctype ftp gd hash mysql mysqli pcre posix session simplexml spl tokenizer xml xmlreader xmlwriter imap zip tidy json zip-external zlib -intl embed
+dev-db/redis -tcmalloc
+dev-db/sqlite secure-delete unlock-notify
+dev-vcs/subversion -berkdb
+net-dns/bind resolvconf
+net-analyzer/tcpdump -samba
+net-misc/nxserver-freenx nxclient
+net-misc/nxnode rdesktop -vnc
+net-misc/openssh -ldap
+net-fs/samba winbind
+net-misc/wicd -pm-utils -gtk -X -nls -libnotify
+net-misc/quagga bgpclassless multipath ospfapi tcp-zebra
+net-im/wineqq system-wine
+net-fs/cifs-utils upcall
+net-dailup/ppp dhcp radius
+sys-libs/zlib minizip
+sys-fs/udev gudev hwdb keymap
+sys-fs/eudev gudev hwdb keymap kmod
+sys-fs/ntfs3g suid
+sys-fs/lvm2 -lvm1
+sys-fs/aufs3 kernel-patch fuse hfs inotify nfs ramf
+sys-block/open-iscsi utils
+sys-apps/pciutils -zlib
+sys-apps/systemd gcrypt gudev keymap openrc qrcode  
+sys-apps/portage -python3 pypy2_0
+sys-auth/pambase consolekit
+sys-kernel/e-sources reiser4 cjktty -tuxonice -fbcondecor aufs
+www-servers/cherokee php admin rrdtool geoip
+www-client/w3m -X -gtk
+media-libs/gd jpeg png
+media-video/mplayer2 real
+net-misc/openvpn examples iproute2 minimal passwordsave
+x11-libs/cairo -qt4
+x11-libs/libdrm libkms
+x11-misc/compton python_targets_python3_3
+sys-auth/consolekit policykit
+virtual/udev gudev hwdb keymap
+app-i18n/fcitx opencc icu autostart table
+x11-terms/rxvt-unicode 256-color afterimage blink buffer-on-clear secondary-wheel fading-colors pixbuf -vanilla -wcwidth alt-font-width
+net-misc/networkmanager connection-sharing -nss -dhcpcd dhclient 
+app-pda/libimobiledevice -python
+x11-misc/tint2 tint2conf battery
+media-libs/libmp4v2 utils
+x11-wm/enlightenment emotion ukit
+x11-wm/openbox imlib xdg
+app-admin/conky -X -hddtemp vim-syntax nano-syntax wifi rss iostats weather-metar imlib math
+xfce-base/xfdesktop thunar
+xfce-base/thunar -xfce_plugins_trash
+app-editors/emacs -motif -gzip-el gnutls libxml2 toolkit-scroll-bars games 
+app-editors/emacs-vcs  -motif Xaw3d -gtk3 -gtk gzip-el gnutls libxml2 toolkit-scroll-bars games 
+app-text/ghostscript-gpl cups
+net-libs/opal sipim
+net-libs/ptlib wav
+net-ftp/lftp -ssl
+media-libs/mediastreamer video
+media-libs/mesa xorg g3dvl gbm bindist
+dev-libs/lzo static-libs
+dev-libs/libgpg-error static-libs
+dev-libs/libgcrypt static-libs
+media-sound/deadbeef aac alsa cdda curl dts ffmpeg flac gtk2 -gtk3 mp3 musepack nls notify sndfile threads vorbis wavpack ape converter hotkeys infobar tta zip
+x11-drivers/xf86-video-intel sna glamor uxa xvmc dri
+net-nds/openldap -gnutls
+net-misc/freeswitch  esl esl-python esl-lua freeswitch_modules_curl freeswitch_modules_tts_commandline freeswitch_modules_amr freeswitch_modules_dialplan_directory freeswitch_modules_expr freeswitch_modules_alsa freeswitch_modules_python freeswitch_modules_callcenter freeswitch_modules_db freeswitch_modules_dptools freeswitch_modules_g729 freeswitch_modules_ilbc freeswitch_modules_blacklist freeswitch_modules_bv freeswitch_modules_conference freeswitch_modules_event_socket freeswitch_modules_limit freeswitch_modules_loopback freeswitch_modules_sndfile freeswitch_modules_cdr_csv freeswitch_modules_console freeswitch_modules_fifo freeswitch_modules_h26x freeswitch_modules_commands freeswitch_modules_tone_stream freeswitch_modules_dialplan_xml freeswitch_modules_enum freeswitch_modules_esf freeswitch_modules_lua freeswitch_modules_sofia freeswitch_modules_voicemail freeswitch_modules_valet_parking freeswitch_modules_g723_1 freeswitch_modules_hash freeswitch_modules_httapi freeswitch_modules_syslog freeswitch_modules_local_stream freeswitch_modules_logfile freeswitch_modules_native_file freeswitch_modules_sms freeswitch_modules_spandsp freeswitch_modules_speex freeswitch_modules_memcache freeswitch_modules_mp4v freeswitch_modules_portaudio freeswitch_modules_portaudio_stream freeswitch_modules_radius_cdr freeswitch_modules_redis freeswitch_modules_freetdm freeswitch_modules_snapshot freeswitch_modules_spy freeswitch_modules_distributor freeswitch_modules_erlang_event freeswitch_modules_shout freeswitch_modules_xml_cdr freeswitch_modules_cdr_pg_csv freeswitch_modules_cdr_sqlite freeswitch_modules_xml_curl
+media-sound/freeswitch-sounds-music  16k
+media-sound/freeswitch-sounds-en 16k
+dev-libs/elfutils static-libs
+gnome-base/librsvg tools
+x11-plugins/cairo-dock-plugins -gtk3 gmenu
+x11-misc/cairo-dock -gtk3
+x11-misc/xmobar -alsa
+dev-vcs/gitolite tools
+sys-libs/gpm static-libs
+media-libs/libjpeg-turbo static-libs
+media-libs/libmng static-libs
+sys-libs/zlib static-libs
+media-libs/lcms static-libs
+media-libs/libpng static-libs apng
+app-arch/bzip2 static-libs
+app-arch/p7zip wxwidgets
+virtual/jpeg static-libs
+net-misc/aria2 bittorrent
+www-client/firefox pgo
+www-plugins/adobe-flash -multilib
+gnome-base/gvfs -gdu
+app-text/stardict espeak
+app-emacs/anything extensions
+net-wireless/wpa_supplicant ap wps
+app-emulation/winetricks -gtk
+app-misc/mc mclib sftp -slang
+sys-power/suspend -fbsplash
+dev-util/cmake -qt4
+dev-python/pypy sqlite
+net-dns/dnsmasq script
+app-emacs/emacs-common-gentoo games
+dev-qt/qtsql sqlite
+www-servers/uwsgi -apache2 php gevent syslog yaml rsyslog zeromq json -xml
+www-servers/apache suexec
+www-servers/nginx nginx_modules_http_naxsi
+#x11-libs/libXtst abi_x86_32
+#x11-libs/libXmu abi_x86_32
+#x11-libs/libSM abi_x86_32
+media-gfx/nomacs raw
+dev-libs/nss utils
+sys-fs/cryptsetup -openssl
+net-analyzer/wireshark -qt4
+app-accessibility/espeak portaudio
+media-gfx/librecad 3d
+pantheon-base/marlin plugins
+x11-themes/elementary-theme -wallpapers -gtk3
+virtual/python-argparse python_targets_python3_3
+net-fs/cifs-utils ads
+net-libs/gnutls pkcs11
+media-video/vlc dvd ffmpeg mpeg mad wxwindows aac dts a52 ogg flac theora oggvorbis matroska freetype bidi xv svga gnutls stream vlm httpd cdda vcd cdio live
+media-sound/oss oss_cards_audioloop oss_cards_usb oss_cards_userdev

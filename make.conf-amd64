@@ -1,0 +1,52 @@
+# These settings were set by the catalyst build script that automatically built this stage
+# Please consult /etc/make.conf.example for a more detailed example
+CFLAGS="-O2 -march=core2 -pipe"
+CHOST="x86_64-pc-linux-gnu"
+CXXFLAGS="${CFLAGS}"
+MAKEOPTS="-j3"
+#LDFLAGS="-Wl,--sort-common "
+
+LC_ALL="C"
+LINGUAS="zh_CN zh"
+FEATURES="sandbox userfetch parallel-fetch "
+
+USE="-qt -qt3 -xine -kde -ccache -doc -networkmanager -debug -xmms -mozilla -arts -gnome -gstreamer -cups -ipv6 -gnome-print -libburn -3dnow -3dnowext -32bit -modules  -lirc \
+python3 smp qt4 qt3support gtk cairo opengl glitz X dmx acpi javascript unicode mmx mmxext sse sse2 ssse3 xft cjk nls sslv2  \
+vim cscope vim-syntax php fpm curl openssl fastcgi mozsvg xpm jpeg png gif svg tiff lcms exif nsplugin cgi xulrunner fastcgi bzip2 \
+fontconfig gpg xetex emacs emacs23icons lua xcomposite hibernate-script pdf truetype xcb enca dvdr win32codecs a52  \ 
+xv ao nas alsa oss oss4 cdda cddb cdio cdaudio wma mp3 mp4 mad aac ogg flac dts mtp wavpack devil sndfile music dvd mpeg xine xvid x264 sdl srt mplayer \
+rrdtool shadow usb gnutls xosd id3tag charconv bash-completion zsh-completion dbus udev devfs-compat ctype mng xml ldap samba vhosts tftp \
+device-mapper libnotify notify wifi kpathsea cleartype -ubuntu hddtemp bluetooth xinerama savedconfig logrotate fbcon consolekit lzma mysql postgres apache2 dia qq"
+
+ACCEPT_KEYWORDS="~amd64"
+ACCEPT_LICENSE="*"
+
+PORTAGE_ECLASS_WARNING_ENABLE="0"
+
+
+PORTAGE_NICENESS="15"
+PORTAGE_IONICE_COMMAND="ionice -c 3 -p \${PID}"
+
+#DISTDIR="/mnt/stone/distfiles"
+#PORTDIR_OVERLAY="/usr/local/portage"
+#PORTDIR_OVERLAY="/usr/local/xgl-coffee"
+source /var/lib/layman/make.conf
+
+INPUT_DEVICES="synaptics keyboard mouse evdev joystick"
+VIDEO_CARDS="fbdev vesa radeon intel "
+
+QEMU_SOFTMMU_TARGETS="arm i386 x86_64 ppc mips mips64"
+QEMU_USER_TARGETS="arm i386 x86_64 ppc mips mips64"
+
+#XTABLES_ADDONS="cui gfw zhang"
+
+
+#BINHOST="ftp://binpkg:gentoo@192.168.0.1/"
+#GENTOO_MIRRORS="http://gentoo.osuosl.org/"
+GENTOO_MIRRORS="60.12.227.94/gentoo http://gentoo.osuosl.org/"
+#GENTOO_MIRRORS="http://mirrors.xmu.edu.cn/gentoo 61.135.158.199 http://gentoo.osuosl.org/ "
+#GENTOO_MIRRORS="216.165.129.135  61.135.158.199"
+#SYNC="rsync://61.135.158.199/gentoo-portage"
+#SYNC="rsync://mirrors.xmu.edu.cn/gentoo-portage"
+DISTCC_DIR=${PORTAGE_TMPDIR}/portage/.distcc
+

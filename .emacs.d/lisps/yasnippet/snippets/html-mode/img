@@ -1,0 +1,4 @@
+#contributor : transtone <zm3345@gmail.com>
+#name : <img src="..." alt="..." />
+# --
+<img src="$1" alt="$2" />

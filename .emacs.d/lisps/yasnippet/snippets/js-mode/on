@@ -1,0 +1,7 @@
+#contributor : transtone <zm3345@126.com>
+#name : event function 'on'
+#group : event
+# --
+on('${click}', function(){
+   $0
+});

@@ -1,0 +1,139 @@
+Xft.antialias: 1
+Xft.dpi: 127.68
+Xft.hinting: 1
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter:lcddefault
+
+!Emacs.font: Droid Sans Mono-9
+!Emacs.font: Envy Code R-9
+Emacs.font: CosmicSansNeueMono for Powerline-8
+! Emacs.font: Monaco-9
+!Emacs.font: Consolas-9
+!Emacs.font: Terminus-9
+Emacs.useXIM: true
+
+
+Xcursor.theme: OpenZone_Fire_Slim
+!Xcursor.theme: ComixCursors-Black-Small
+*metaSendsEscape: true
+
+xterm*locale:true
+xterm*utf8:true
+xterm*utf8Title:true
+xterm*fontMenu*fontdefault*Label:Default
+xterm*faceName:Monaco:antialias=true:pixelsize=9
+xterm*faceNameDoublesize:Droid Sans Fallback Pro:antialias=true:pixelsize=10
+xterm*xftAntialias:true
+!xterm*cjkWidth:false
+!xterm*preeditType:OverTheSpot
+
+
+!!Urxvt set
+! scroll set 
+
+! font set
+URxvt*font:                     xft:CosmicSansNeueMono for Powerline:size=9:antialias=true,xft:ZHmono:size=9:antialias=true
+URxvt*boldFont:                 xft:CosmicSansNeueMono for Powerline:size=9:antialias=true,xft:ZHmono:size=9:antialias=true
+URxvt*italicFont:               xft:CosmicSansNeueMono for Powerline:size=9:antialias=true,xft:ZHmono:size=9:antialias=true
+URxvt*bolditalicFont:           xft:CosmicSansNeueMono for Powerline:size=9:antialias=true,xft:ZHmono:size=9:antialias=true
+
+! URxvt*font:                     xft:Envy Code R:size=9:antialias=true,xft:ZHmono:size=9:antialias=true
+! URxvt*boldFont:                 xft:Envy Code R:size=9:antialias=true,xft:ZHmono:size=9:antialias=true
+! URxvt*italicFont:               xft:Envy Code R:size=9:antialias=true,xft:ZHmono:size=9:antialias=true
+! URxvt*bolditalicFont:           xft:Envy Code R:size=9:antialias=true,xft:ZHmono:size=9:antialias=true
+
+!URxvt.font:xft:Envy Code R:size=13:antialias=true,xft:LiHei Pro:size:13:antialias=true
+!URxvt.cursorColor: whire
+urxvt*foreground: #ffffff
+URxvt.background: rgba:0000/0000/0000/eeee
+!urxvt*background: #101010
+!urxvt*backgroundPixmap:
+urxvt*color0: #000000
+urxvt*color1: #cc0000
+urxvt*color2: #4e9a06
+urxvt*color3: #c4a000
+urxvt*color4: #3465a4
+urxvt*color5: #75507b
+urxvt*color6: #06989a
+urxvt*color7: #d3d7cf
+urxvt*color8: #555753
+urxvt*color9: #ef2929
+urxvt*color10: #8ae234
+urxvt*color11: #fce94f
+urxvt*color12: #729fcf
+urxvt*color13: #ad7fa8
+urxvt*color14: #34e2e2
+urxvt*color15: #eeeeec
+!urxvt*transparent: true
+urxvt*shading: 10
+URxvt*secondaryWheel: true
+
+!URxvt.visualBell:  true
+!URxvt.cursorBlink: true
+!URxvt.fading: 10
+URxvt.internalBorder: 5
+URxvt.cutchars:    "()*,<>[]{}|'"
+URxvt.scrollBar: False
+URxvt.scrollWithBuffer: false
+URxvt.buffered:  true
+Urxvt.secondaryScroll:  true    # Enable Shift-PageUp/Down in screen
+URxvt.saveLines: 20000
+URxvt.inputMethod: fcitx
+URxvt.preeditType: OverTheSpot
+URxvt.thickness: 0
+URxvt.geometry: 110x38+0+0
+URxvt.termName: rxvt
+URxvt.title: Rxvt-Unicode
+URxvt.tintColor:lightgray
+!URxvt.shading:30
+!URxvt.inheritPixmap:true
+URxvt.depth: 32
+
+!URxvt.copyCommand:  xclip -i -selection clipboard
+!URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.perl-lib: ./bin/urxvt-perls
+URxvt.perl-ext-common: default,matcher,guake,clipboard,keyboard-select,url-select,font-size
+URxvt.keysym.Mod4-u: perl:url-select:select_next
+URxvt.keysym.M-w:   perl:clipboard:copy
+URxvt.keysym.C-y:   perl:clipboard:paste
+URxvt.keysym.C-v:   perl:clipboard:paste_escaped
+URxvt.keysym.Mod4-Escape: perl:keyboard-select:activate
+URxvt.keysym.Mod4-s: perl:keyboard-select:search
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+urxvt.urlLauncher:      firefox-bin
+urxvt.matcher.button:   1 
+URxvt.underlineURLs: true
+
+rofi.background: #333
+rofi.foreground: #1aa
+rofi.highlightbg: #1aa
+rofi.highlightfg: #111
+rofi.bordercolor: #277
+rofi.font: CosmicSansNeueMono for Powerline 12
+! rofi.font: times 10
+rofi.padding: 3
+rofi.lines: 5
+rofi.borderwidth: 3
+rofi.opacity: 90
+! rofi.width: 50
+rofi.columns: 1
+! rofi.fg: #1aa
+! rofi.bg: #333
+! rofi.hlfg: #333
+! rofi.hlbg: #1aa
+! rofi.bc: #1aa
+! rofi.bw: 2
+! rofi.loc: 0
+rofi.yoffset: -2
+rofi.xoffset: 0
+rofi.fixed-num-lines: false
+rofi.hmode: false
+rofi.terminal: x-terminal-emulator
+rofi.ssh-set-title: true
+rofi.key: mod1+Tab
+rofi.rkey: mod4+r
+rofi.skey: mod4+s

@@ -1,0 +1,26 @@
+dev-vcs/git -gtk subversion
+dev-vcs/subversion -dso perl
+dev-lang/ghc ghcquickbuild binary
+app-emulation/qemu-kvm spice qemu-ifup
+app-emulation/libvirt iscsi kvm lvm nfs virtualbox
+app-emulation/aqemu  kvm
+app-emulation/spice -gui sasl
+app-emulation/virtualbox-bin rdesktop-vrdp -chm vboxwebsrv
+app-emulation/virtualbox extensions -sdk -python 
+app-portage/layman git subversion mercurial
+app-portage/eix strong-optimization optimization tools
+dev-lang/php -truetype apache2 sockets filter unicode cgi curl discard-path force-cgi-redirect bzip2 crypt ctype ftp gd hash mysql mysqli pcre posix session simplexml spl tokenizer xml xmlreader xmlwriter tidy json zip-external zlib
+dev-db/redis -tcmalloc
+dev-db/sqlite secure-delete icu unlock-notify
+dev-vcs/subversion -berkdb
+net-dns/bind resolvconf
+net-analyzer/tcpdump -samba
+net-misc/nxserver-freenx nxclient
+net-misc/nxnode rdesktop -vnc
+net-misc/openssh -ldap
+sys-libs/zlib minizip
+sys-fs/udev gudev hwdb keymap
+sys-fs/ntfs3g suid
+sys-fs/lvm2 -lvm1
+sys-fs/aufs3 hfs inotify nfs ramfs fuse kernel-patch
+sys-block/open-iscsi utils

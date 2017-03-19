@@ -1,0 +1,6 @@
+#contributor : transtone <zm3345@gmail.com>
+#name : function (){ 3 lines  } ...
+# --
+function $1($2){
+   $0
+}

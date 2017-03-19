@@ -1,0 +1,47 @@
+"2.0b1 (created: 2009/02/09 17:07:55)
+set guioptions+=m
+"set editor=emacsclient -f
+
+set nextpattern=\s*下一页|下一张|下一篇|下一頁|下页|后页\s*,^\bnext\b,\bnext\b,\bsuivant\b,^>$,^(>>|››|»)$,^(>|»),(>|»)$,\bmore\b
+set previouspattern=\s*上一页|上一张|上一篇|上一頁|上页|前页\s*,^\bprev|previous\b,\bprev|previous\b,\bprécédent\b,^<$,^(<<|‹‹|«)$,^(<|«),(<|«)$
+
+"键盘映射
+map <S-Up> :set go=m<CR>
+map <S-Down> :set go=mTb<CR>
+map <S-Left> :set go=T<CR>
+map <S-Right> :set go=b<CR>
+noremap j 2j
+noremap k 2k
+noremap J <C-d>
+noremap K <C-u>
+noremap h gT
+noremap l gt
+noremap <C-x><C-s> :saveas<CR>
+
+"复制粘帖键映射
+":imap <C-y> <S-Ins> 
+":map <C-y> <S-Ins>
+"map <A-w> Y
+
+" 解决全选、复制、粘帖、剪切和撤销与vimperator冲突的问题
+noremap <C-V> <C-v>
+noremap <C-Z> <C-z>
+noremap <C-c> <C-v><C-c>
+noremap <C-a> <C-v><C-a>
+cnoremap <C-c> <C-v><C-c>
+cnoremap <C-v> <C-v><C-v>
+cnoremap <C-x> <C-v><C-x>
+inoremap <C-a> <C-v><C-a>
+inoremap <C-c> <C-v><C-c>
+inoremap <C-v> <C-v><C-v>
+inoremap <C-x> <C-v><C-x>
+inoremap <C-z> <C-v><C-z>
+inoremap <C-y> <C-v><C-y>
+
+:set wildoptions=auto
+:set cpt=l
+
+"autocmd LocationChange .* js modes.passAllKeys = /.*(mail\.google\.com|www\.google\.com\/reader).*/.test(buffer.URL)
+
+"source! ~/_vimperatorrc.local
+" vim: set ft=vimperator:

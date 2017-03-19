@@ -1,0 +1,4 @@
+#name : {% include ... %}
+#group : include
+# --
+{% include '$1' ignore missing %}$0

@@ -1,0 +1,9 @@
+!
+! Swap Caps_Lock and Control_L
+!
+remove Lock = Caps_Lock
+!remove Scroll = Scroll_Lock
+keysym Scroll_Lock = Caps_Lock
+keysym Caps_Lock = Control_L
+add Lock = Caps_Lock
+add Control = Control_L 

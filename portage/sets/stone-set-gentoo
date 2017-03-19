@@ -1,0 +1,7 @@
+app-portage/eix
+app-portage/euses
+app-portage/layman
+app-portage/pfl
+app-portage/portage-utils
+app-portage/gentoolkit
+#sys-kernel/genkernel

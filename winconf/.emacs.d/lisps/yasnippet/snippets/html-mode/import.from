@@ -1,0 +1,4 @@
+#name : {% from ... import %}
+#group : import
+# --
+{% from '$1' import $2 as $3 %}$0

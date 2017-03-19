@@ -1,0 +1,40 @@
+#!/sbin/runscript
+# Copyright 2009 Funtoo Technologies, LLC
+# All rights reserved. Released under the 2-clause BSD license.
+
+USER=zhou
+IP=192.168.100.1
+NM=255.255.255.0
+INT=tap0
+DOM=stonework.org
+NS1=208.67.222.222
+NS2=208.67.220.220
+
+depend() {
+        provide net
+        after net.lo
+}
+
+start() {
+        ebegin "Setting up the tap interface: $INT"
+        tunctl -b -u $USER -t $INT >/dev/null
+        eend $?
+        ebegin "Bringing up network interface $INT"
+        ifconfig $INT $IP netmask $NM up && \
+        resolvconf -a $INT << EOF
+domain $DOM
+nameserver $NS1
+nameserver $NS2
+EOF
+        eend $?
+}
+
+stop() {
+        ebegin "Shutting down network interface $INT"
+        resolvconf -d $INT && \
+        ifconfig $INT down
+        eend $?
+        ebegin "Removing the tap interface: $INT"
+        tunctl -d $INT >/dev/null
+        eend $?
+}

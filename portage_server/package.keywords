@@ -1,0 +1,3 @@
+sys-apps/portage ~*
+sys-fs/zfs **
+=sys-fs/aufs3 **

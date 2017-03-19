@@ -1,0 +1,4 @@
+#contributor : transtone <zm3345@gmail.com>
+#name :<iframe>...</iframe>
+# --
+<iframe src="$1" width="$2" height="$3" frameborder="0">$0</iframe>

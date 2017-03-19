@@ -1,0 +1,13 @@
+vbell on
+defbce on
+term xterm-256color
+
+escape ^Ll
+#bind 2 split
+#bind o focus
+#bind 1 only
+#bind 0 remove
+defscrollback 5000
+
+altscreen on
+acladd :window:

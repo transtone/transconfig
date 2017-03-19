@@ -1,0 +1,106 @@
+#!/sbin/runscript
+# Copyright 1999-2006 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+#
+# /etc/init.d/squash_ff allows efficient compression of
+# Gentoo portage arborescence
+#
+# It requires support for the loop device and squashfs enabled in the kernel,
+# module autoloading is also *highly* recommended.
+# sys-fs/squashfs and sys-fs/aufs are necessary for read-write support.
+#
+# Author: transtone < zm3345@gmail.com >
+
+opts="sync"
+
+SQFS_CUR="$SQFS_DIRNAME/stone.sqfs"
+SQFS_NEW="$SQFS_DIRNAME/stone-current.sqfs"
+SQFS_OLD="$SQFS_DIRNAME/stone-old.sqfs"
+DEF_RW="/dev/shm/.stone-rw"
+SQFS_OPTS="-force-uid zhou -force-gid zhou -no-duplicates -comp xz"
+
+depend() {
+	need localmount modules
+}
+
+
+check_support() {
+	if ! [ -x /usr/bin/mksquashfs ]; then
+		eerror "ERROR: sys-fs/squashfs-tools is not installed."
+		return 1
+	fi
+	if ! [ -w /dev/loop0 ]; then
+		eerror "ERROR: loopback support is not available."
+		return 1
+	fi
+	if ! [[ $(grep -s $'\taufs$' /proc/filesystems) ]]; then
+		eerror "ERROR: aufs filesystem support is not available."
+		return 1
+	fi
+	if ! [[ $(grep -s $'\tsquashfs$' /proc/filesystems) ]]; then
+		eerror "ERROR: squashfs filesystem support is not available."
+		return 1
+	fi
+	return 0
+}
+
+sync() {
+	mksquashfs $HOME_AUFS $SQFS_NEW $SQFS_OPTS # 2>/dev/null
+	eend 0
+}
+
+restart() {
+	stop
+	start
+	eend 0
+}
+
+start() {
+	check_support || return 1
+	if [ -f "$SQFS_CUR" ]; then
+		ebegin "SQFS-HOME: Mounting read-only squashfs image"
+		mount -rt squashfs -o loop,nodev,noexec $SQFS_CUR $HOME_RO
+	else
+		einfo "  $SQFS_CUR does not exist, creating"
+		mkdir -p $SQFS_DIRNAME
+		sync
+		start
+		eend 0
+	fi
+
+	ebegin "Mounting read-write with aufs"
+	if [ ! $HOME_RW ] ; then
+		einfo "  mounted in tmpfs (RAM)"
+		HOME_RW="${DEF_RW}"
+	[ -d $HOME_RW ] || mkdir -p $HOME_RW
+	chmod 0750 $HOME_RW
+	chown zhou:zhou $HOME_RW
+        fi
+	mount -t aufs -o xino=/dev/shm/aufs.xino,br=$HOME_RW=rw:$HOME_RO=ro aufs $HOME_AUFS
+	eend 0
+
+}
+
+stop() {
+	ebegin "SQFS-HOME: Stopping and unmounting"
+        if [ -x $SQFS_FF ]; then
+           rm -rf $SQFS_FF/urlclassifier* $SQFS_FF/startupCache $SQFS_FF/Cache $SQFS_FF/../Crash Reports
+        fi
+	[ ! $HOME_RW ] && HOME_RW="${DEF_RW}"
+	if [ $(du -s --exclude=.w* $HOME_RW | cut -f 1) -gt 4 ]; then
+		einfo "  Changes detected, updating image."
+		mv -f $SQFS_NEW $SQFS_OLD
+		sync
+		rm -f $SQFS_OLD
+	else
+		einfo "  No changes detected, skipping update."
+		eend 0
+	fi
+
+	einfo "  Unmounting the tree"
+	umount -t aufs  $HOME_AUFS
+	umount -t squashfs $HOME_RO
+#	rm -rf $HOME_RW
+	eend 0
+}

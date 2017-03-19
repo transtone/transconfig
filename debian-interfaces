@@ -1,0 +1,17 @@
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+    address 192.168.200.2
+#    network 192.168.100.0
+    netmask 255.255.255.0
+#    broadcast 192.168.200.0
+#    gateway 192.168.200.1
+#    up route add -net 192.168.1.128 netmask 255.255.255.128 gw 192.168.1.2
+#    up route add default gw 192.168.1.200
+#    down route del default gw 192.168.1.200
+#    down route del -net 192.168.1.128 netmask 255.255.255.128 gw 192.168.1.2

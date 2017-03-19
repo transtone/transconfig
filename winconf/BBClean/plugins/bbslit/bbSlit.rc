@@ -1,0 +1,15 @@
+bbSlit.placement:       TopRight
+bbSlit.position.x:      0
+bbSlit.position.y:      0
+bbSlit.useSlit:         false
+bbSlit.alwaysOnTop:     false
+bbSlit.AutoHide:        false
+bbSlit.clickRaise:      true
+bbSlit.snapWindow:      true
+bbSlit.pluginToggle:    true
+bbSlit.alpha.enabled:   true
+bbSlit.alpha.value:     190
+bbSlit.orientation:     horizontal
+bbSlit.order:           2
+bbSlit.setMargin:       true
+bbSlit.baseWidth:       0

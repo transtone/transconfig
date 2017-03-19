@@ -1,0 +1,91 @@
+# ------------------------------------------------------
+# bbLeanBar.rc
+
+# Lines starting with # or ! are ignored
+
+# This builds a toolbar with tasks and tray. You may
+# change the order of items or uncomment some of the
+# currently disabled (!) items:
+bbLeanBar.item:                         Space
+!bbLeanBar.item:                         WorkspaceLabel
+bbLeanBar.item:                         Space
+!bbLeanBar.item:                 WorkspaceButtonL
+!bbLeanBar.item:                 WorkspaceButtonR
+!bbLeanBar.item:                 WindowLabel
+bbLeanBar.item:                         Tasks
+!bbLeanBar.item:                 CurrentOnlyButton
+bbLeanBar.item:                         Space
+bbLeanBar.item:                         Tray
+!bbLeanBar.item:                 WindowButtonL
+!bbLeanBar.item:                 WindowButtonR
+!bbLeanBar.item:                         Clock
+bbLeanBar.item:                         Space
+bbLeanBar.item:                         Space
+bbLeanBar.item:                         Space
+bbLeanBar.item:                         Space
+# other available items:
+!bbLeanBar.item:                 TaskStyleButton
+# opens another bar-line
+!bbLeanBar.item:                NewLine
+# inserts a small gap
+!bbLeanBar.item:                Space
+
+# ----------------
+# general settings
+
+bbLeanBar.placement:                    TopCenter
+bbLeanBar.position.x:                   0
+bbLeanBar.position.y:                   0
+bbLeanBar.widthPercent:                 66
+bbLeanBar.useSlit:                      true
+# 0=Auto
+bbLeanBar.icon.Size:                    16
+bbLeanBar.pluginToggle:                 true
+bbLeanBar.OnTop:                        true
+bbLeanBar.autoHide:                     false
+bbLeanBar.autoRaise:                    true
+bbLeanBar.snapToEdge:                   true
+bbLeanBar.alpha.enabled:                true
+bbLeanBar.alpha.value:                  200
+bbLeanBar.balloonTips:                  true
+# Hide when applications go fullscreen
+bbLeanBar.autoFullscreenHide:           true
+
+# task tabs
+bbLeanBar.tasks.style:                  2
+bbLeanBar.tasks.reverse:                false
+bbLeanBar.tasks.current:                false
+bbLeanBar.tasks.sysmenu:                true
+bbLeanBar.tasks.drawBorder:             true
+bbLeanBar.tasks.maxWidth:               260
+
+# icon color
+bbLeanBar.icon.saturation:              200
+bbLeanBar.icon.hue:                     40
+bbLeanBar.tray.saturation:              255
+bbLeanBar.tray.hue:                     0
+
+# clock-format string
+!bbLeanBar.strftimeFormat:       %#H:%M:%S %Y-%B-%d %A
+bbLeanBar.strftimeFormat:               %YƒÍ%m‘¬%d»’  %a  %#I:%M %p
+bbLeanBar.strftimeTipsFormat:           %A %d %B %Y
+bbLeanBar.clickRaise:                   true
+bbLeanBar.balloonTimeout:               0
+bbLeanBar.balloonRightDismiss:          false
+
+# ------------------------------------------------------
+# systray icon fix, tweak it, if the icon's
+# context menus don't open correctly...
+! bbLeanBar.tray.FocusDelay: 60
+
+# labels action click
+bbLeanBar.WorkspaceLabel.LeftClick:     @BBCore.ShowMenu 0 23 start.rc
+bbLeanBar.RightClick:                   @BBCore.ShowMenu 0 20 start.rc
+
+! bbLeanBar.WorkspaceLabel.MidClick:   @BBCore.ShowMenu root
+! bbLeanBar.WorkspaceLabel.RightClick: @BBCore.LeftWorkspace
+
+! bbLeanBar.WindowLabel.RightClick: @BBCore.ShowMenu
+
+! bbLeanBar.Clock.RightClick: @BBCore.ShowMenu
+! bbLeanBar.Clock.DblClick:   control.exe timedate.cpl

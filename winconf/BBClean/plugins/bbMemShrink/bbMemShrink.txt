@@ -1,0 +1,56 @@
+-------------------------------------------------------
+
+\\ bbMemShrink 0.0.1
+
+-------------------------------------------------------
+
+[ Purpose ]
+
+    It shrinks memory allocated for blackbox.
+
+-------------------------------------------------------
+
+[ Installation ]
+
+    Add path to bbMemShrink.dll in plugins.rc.
+
+-------------------------------------------------------
+
+[ Limitation ]
+
+    Only for Windows NT 3.5 or later.
+
+-------------------------------------------------------
+
+[ How to Use ]
+
+    1)  Use an app such as Task Manager to monitor
+        mem-use for blackbox.exe process.  (Hit ctrl +
+        shift + esc.  Go to "Processes" tab.)
+
+    2)  Send this bro@m:  @ShrinkMemory.
+[exec] (ÄÚ´æ»ØÊÕ) {@ShrinkMemory}
+
+-------------------------------------------------------
+
+[ License ]
+
+    See bbMemShrink.cpp.
+
+-------------------------------------------------------
+
+[ Contact ]
+
+    bladestaylor@yahoo.com
+
+    http://bb4win.sourceforge.net/bladestaylor
+
+-------------------------------------------------------
+
+[ Changes ]
+
+    (0.0.1 - March 31, 2004)
+
+        -- initial release
+
+-------------------------------------------------------

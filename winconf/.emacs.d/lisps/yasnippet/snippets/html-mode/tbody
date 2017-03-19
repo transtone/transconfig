@@ -1,0 +1,4 @@
+#name : <tbody>...</tbody>
+#group : table body
+# --
+<tbody>$1</tbody>

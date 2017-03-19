@@ -1,0 +1,5 @@
+#contributor : Satoshi Nishimura <nishim314@gmail.com>
+#name : <?php /* ... */ class ...{...} 
+#group : definitions
+# --
+<?php $0 ?>

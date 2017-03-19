@@ -1,0 +1,6 @@
+#name : var x = function(...){...}
+#by : fancyoung
+# --
+var $1 = function($2){
+    $0
+};

@@ -1,0 +1,7 @@
+#contributor : transtone <zm3345@126.com>
+#name : event function 'delegate'
+#group : event
+# --
+delegate('${click}','$1', function(e){
+   $0
+});

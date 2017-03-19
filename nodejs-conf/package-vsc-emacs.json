@@ -1,0 +1,216 @@
+{
+	"__metadata": {
+		"galleryApiUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
+		"id": "4db29a35-a527-4ec6-8525-4ac8642d8fe4",
+		"publisherId": "778bf2ca-f2cf-4eaf-8be8-dfd71728bae5",
+		"publisherDisplayName": "hiro-sun",
+		"installCount": 250,
+		"versions": [
+			{
+				"version": "0.0.4",
+				"date": "2016-02-26T02:18:55.97Z",
+				"downloadHeaders": {
+					"X-Market-Client-Id": "VSCode",
+					"X-Market-User-Id": "1de9b410ce04242da25907b52d89f03d6df2b06de72c2913ccd55fbdcbbc62f8"
+				},
+				"downloadUrl": "https://hiro-sun.gallery.vsassets.io/_apis/public/gallery/publisher/hiro-sun/extension/vscode-emacs/0.0.4/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage?install=true",
+				"manifestUrl": "https://hiro-sun.gallery.vsassets.io/_apis/public/gallery/publisher/hiro-sun/extension/vscode-emacs/0.0.4/assetbyname/Microsoft.VisualStudio.Code.Manifest"
+			},
+			{
+				"version": "0.0.3",
+				"date": "2016-02-19T16:06:22.23Z",
+				"downloadHeaders": {
+					"X-Market-Client-Id": "VSCode",
+					"X-Market-User-Id": "1de9b410ce04242da25907b52d89f03d6df2b06de72c2913ccd55fbdcbbc62f8"
+				},
+				"downloadUrl": "https://hiro-sun.gallery.vsassets.io/_apis/public/gallery/publisher/hiro-sun/extension/vscode-emacs/0.0.3/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage?install=true",
+				"manifestUrl": "https://hiro-sun.gallery.vsassets.io/_apis/public/gallery/publisher/hiro-sun/extension/vscode-emacs/0.0.3/assetbyname/Microsoft.VisualStudio.Code.Manifest"
+			},
+			{
+				"version": "0.0.2",
+				"date": "2016-02-16T02:34:41.06Z",
+				"downloadHeaders": {
+					"X-Market-Client-Id": "VSCode",
+					"X-Market-User-Id": "1de9b410ce04242da25907b52d89f03d6df2b06de72c2913ccd55fbdcbbc62f8"
+				},
+				"downloadUrl": "https://hiro-sun.gallery.vsassets.io/_apis/public/gallery/publisher/hiro-sun/extension/vscode-emacs/0.0.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage?install=true",
+				"manifestUrl": "https://hiro-sun.gallery.vsassets.io/_apis/public/gallery/publisher/hiro-sun/extension/vscode-emacs/0.0.2/assetbyname/Microsoft.VisualStudio.Code.Manifest"
+			}
+		]
+	},
+	"name": "vscode-emacs",
+	"displayName": "vscode-emacs",
+	"description": "emacs like extension for vscode",
+	"version": "0.0.4",
+	"publisher": "hiro-sun",
+	"homepage": "https://github.com/hiro-sun/vscode-emacs",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hiro-sun/vscode-emacs.git"
+	},
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"keybindings": [
+			{
+				"key": "ctrl+[",
+				"command": "emacs.C-space",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+n",
+				"command": "emacs.C-n",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+p",
+				"command": "emacs.C-p",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+a",
+				"command": "emacs.C-a",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+e",
+				"command": "emacs.C-e",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+f",
+				"command": "emacs.M-f",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+b",
+				"command": "emacs.M-b",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+v",
+				"command": "emacs.M-v",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+shift+.",
+				"command": "emacs.M->",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+shift+,",
+				"command": "emacs.M-<",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+g g",
+				"command": "emacs.M-g_g",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+r",
+				"command": "emacs.C-r"
+			},
+			{
+				"key": "ctrl+l",
+				"command": "emacs.C-l",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+d",
+				"command": "emacs.C-d",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+h",
+				"command": "emacs.C-h",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+d",
+				"command": "emacs.M-d",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+k",
+				"command": "emacs.C-k",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+w",
+				"command": "emacs.M-w",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+j",
+				"command": "emacs.C-j",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+m",
+				"command": "emacs.C-m",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+o",
+				"command": "emacs.C-o",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+;",
+				"command": "emacs.C-semicolon",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+;",
+				"command": "emacs.M-semicolon",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+g",
+				"command": "emacs.C-g",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+g",
+				"command": "closeFindWidget",
+				"when": "editorFocus && findWidgetVisible"
+			},
+			{
+				"key": "ctrl+g",
+				"command": "closeReferenceSearchEditor",
+				"when": "searchViewletVisible"
+			},
+			{
+				"key": "alt+x",
+				"command": "emacs.M-x",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+x",
+				"command": "emacs.M-x",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+	},
+	"devDependencies": {
+		"tsd": "^0.6.5",
+		"typescript": "^1.6.2",
+		"vscode": "0.10.x"
+	},
+	"dependencies": {
+		"lodash": "^4.1.0"
+	}
+}

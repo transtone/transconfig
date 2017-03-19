@@ -1,0 +1,11 @@
+	[submenu] (小工具) <Icons\kits.ico>
+		[exec] (任务管理器) {taskmgr.exe} <*>
+		[exec] (显示) {desk.cpl} <desk.cpl,0>
+		[exec] (启动项配置) {msconfig.exe} <*>
+				[separator]
+		[exec] (磁盘清理) {cleanmgr.exe} <*>
+		[exec] (电源管理) {powercfg.cpl} <powercfg.cpl,0>
+		[exec] (智能内存管理) {Soft\smartram.exe} <*>
+		[exec] (输入法设置){Soft\imetool\imetool.exe} <*>
+		[exec] (输入法状态){Soft\imetool\internat.exe} <*>
+	[end]

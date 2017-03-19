@@ -1,0 +1,16 @@
+##
+## MSYS2 repository mirrorlist
+## Changed on 2014-11-15
+##
+##中国科学技术大学开源软件镜像
+Server = http://mirrors.ustc.edu.cn/msys2/REPOS/MSYS2/$arch
+##北京理工大学镜像
+Server = http://mirror.bit.edu.cn/msys2/REPOS/MSYS2/$arch
+##日本北陆先端科学技术大学院大学 sourceforge 镜像
+Server = http://jaist.dl.sourceforge.net/project/msys2/REPOS/MSYS2/$arch
+##The UK Mirror Service Sourceforge mirror
+Server = http://www.mirrorservice.org/sites/download.sourceforge.net/pub/sourceforge/m/ms/msys2/REPOS/MSYS2/$arch
+## Primary
+Server = ftp://148.251.42.38/MSYS2/$arch
+## Sourceforge.net
+Server = http://downloads.sourceforge.net/project/msys2/REPOS/MSYS2/$arch

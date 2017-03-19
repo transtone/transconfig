@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: switch
+# key: swa
+# --
+switch (action.type) {
+    case '$1':
+        return {
+          $0
+        }
+    default:
+        return state;
+}

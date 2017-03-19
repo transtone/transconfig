@@ -1,0 +1,4 @@
+#name : <h6>...</h6>
+#group : header
+# --
+<h6>$1</h6>

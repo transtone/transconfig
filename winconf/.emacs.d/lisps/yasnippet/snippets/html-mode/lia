@@ -1,0 +1,5 @@
+#contributor : transtone <zm3345@gmail.com>
+#name : <li><a>...</a></li>
+#group : list
+# --
+<li><a href="$1">$2</a></li>

@@ -1,0 +1,7 @@
+[Allow user YOURUSERNAME to create wireless connections for all users]
+Identity=unix-user:zhou
+Action=org.freedesktop.network-manager-settings.system.modify
+ResultAny=no
+ResultInactive=no
+ResultActive=yes
+

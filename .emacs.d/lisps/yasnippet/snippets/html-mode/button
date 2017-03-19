@@ -1,0 +1,4 @@
+#name : <button>...</button>
+#group : button
+# --
+<button>$1</button>

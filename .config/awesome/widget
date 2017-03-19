@@ -1,0 +1,153 @@
+-- widget
+-- menory usage
+membarwidget = widget({
+    type = 'progressbar',
+    name = 'membarwidget',
+    align = 'right'
+})
+
+membarwidget:properties_set('mem', {
+width = 40,
+height = 0.65,
+gap = 0,
+border_padding = 1,
+border_width = 1,
+ticks_count = 0,
+ticks_gap = 0,
+vertical = false
+})
+
+membarwidget:bar_properties_set('mem', {
+bg = '#222222',
+fg = '#285577',
+fg_center = '#285577',
+fg_end = '#285577',
+fg_off = '#222222',
+reverse = false,
+min_value = 0,
+max_value = 100
+})
+
+wicked.register(membarwidget, wicked.widgets.mem, '$1', 1, 'mem')
+
+-- cpu usage
+
+cpugraphwidget = widget({
+    type = 'graph',
+    name = 'cpugraphwidget',
+    align = 'right'
+})
+
+cpugraphwidget.height = 0.85
+cpugraphwidget.width = 45
+cpugraphwidget.bg = '#333333'
+cpugraphwidget.border_color = '#0a0a0a'
+cpugraphwidget.grow = 'left'
+
+cpugraphwidget:plot_properties_set('cpu', {
+    fg = '#AEC6D8',
+    fg_center = '#285577',
+    fg_end = '#285577',
+    vertical_gradient = false
+})
+
+wicked.register(cpugraphwidget, wicked.widgets.cpu, '$1', 1, 'cpu')
+
+-- network
+netwidget = widget({
+    type = 'textbox',
+    name = 'netwidget'
+})
+
+wicked.register(netwidget, wicked.widgets.net, 
+    ' <span color="white">NET</span>: ${eth0 down} / ${eth0 up} [ ${eth0 rx} //  ${eth0 tx} ]',
+nil, nil, 3)
+
+-- battery
+settings.batteries = 2
+
+-- Label
+batterywidget = widget({type = 'textbox',
+                        name = 'batterywidget',
+                        align = 'right'})
+wicked.register(batterywidget, function() return {} end,
+                settings.widget_separator ..
+                   beautiful.markup.heading('Bat') ..
+                settings.widget_spacer,
+                nil, nil, 500)
+table.insert(settings.widgets, {1, batterywidget})
+
+-- Function to extract charge percentage
+function read_battery_life(number)
+   return function(format)
+             local fh = io.popen('acpi')
+             output = fh:read("*a")
+             fh:close()
+
+             count = 0
+             for s in string.gmatch(output, "(%d+)%%") do
+                if number == count then
+                   return {s}
+                end
+                count = count + 1
+             end
+          end
+end
+
+-- Display one vertical progressbar per battery
+for battery=0, settings.batteries-1 do
+   batterygraphwidget = widget({ type = 'progressbar',
+                                 name = 'batterygraphwidget',
+                                 align = 'right' })
+   batterygraphwidget.height = 0.85
+   batterygraphwidget.width = 8
+   batterygraphwidget.bg = '#333333'
+   batterygraphwidget.border_color = '#0a0a0a'
+   batterygraphwidget.vertical = true
+   batterygraphwidget:bar_properties_set('battery',
+                                         { fg = '#AEC6D8',
+                                           fg_center = '#285577',
+                                           fg_end = '#285577',
+                                           fg_off = '#222222',
+                                           vertical_gradient = true,
+                                           horizontal_gradient = false,
+                                           ticks_count = 0,
+                                           ticks_gap = 0 })
+
+   wicked.register(batterygraphwidget, read_battery_life(battery), '$1', 1, 'battery')
+   table.insert(settings.widgets, {1, batterygraphwidget})
+
+   spacewidget = widget({type = 'textbox',
+                           name = 'spacewidget',
+                           align = 'right'})
+   wicked.register(spacewidget, function() return {} end,
+                   settings.widget_spacer,
+                   nil, nil, 500)
+   table.insert(settings.widgets, {1, spacewidget})
+end
+
+-- volume
+volumewidget = widget({
+    type = 'textbox',
+    name = 'volumewidget'
+})
+
+function amixer_volume(format)
+   local f = io.popen('amixer get PCM')
+   local l = f:lines()
+   local v = ''
+
+   for line in l do
+       if line:find('Front Left:') ~= nil then
+            pend = line:find('%]', 0, true)
+            pstart = line:find('[', 0, true)
+            v = line:sub(pstart+1, pend)
+       end
+   end
+
+   f:close()
+
+   return {v}
+end
+
+wicked.register(volumewidget, amixer_volume, "<span color='white'>Volume</span>: $1", 4)

@@ -1,0 +1,4 @@
+#name : <thead>...</thead>
+#group : table head
+# --
+<thead>$1</thead>

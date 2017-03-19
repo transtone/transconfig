@@ -1,0 +1,4 @@
+#name : {% extends ... %}
+#group : extends
+# --
+{% extends '$1' %}$0

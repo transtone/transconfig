@@ -1,0 +1,8 @@
+#contributor : transtone <zm3345@gmail.com>
+#name : hover(2 functions ) ...
+# --
+hover(function(){
+   $0
+},function(){
+   
+});

@@ -1,0 +1,13 @@
+Xcursor.theme: ComixCursors-opaque-Black-Small-Slim
+
+stjerm.autohide: false
+stjerm.bgimage: /home/zhou/wood.jpg
+stjerm.border: thin            
+stjerm.font:   Monaco 10
+stjerm.key:    Menu
+stjerm.lines: 10000
+!Emacs.font: Envy Code R-9
+Emacs.font: Monaco-9
+!Emacs.font: Consolas-9
+!Emacs.font: Terminus-9
+Emacs.useXIM: true

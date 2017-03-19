@@ -1,0 +1,10 @@
+# -*- mode:snippet -*-
+# name: echo handelerfunc
+# key: ehf
+# --
+func $1() echo.HandlerFunc {
+   return func(c echo.Context) error {
+      $0
+      return c.${2:String}(http.StatusOK, "")
+   }
+}

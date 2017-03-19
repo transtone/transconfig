@@ -1,0 +1,612 @@
+<html>
+<head>
+<title>bbLean - readme</title>
+<link rel="stylesheet" href="bblean_style.css" type="text/css">
+<base target="body">
+</head>
+<body class="frame_body">
+<a class="label" name="details"><h1>Details</h1></a>
+<a class="label" name="building_the_menu">&nbsp;</a><h2>Building&nbsp;the&nbsp;menu</h2>
+<p>To build your own main menu, you have to edit menu.rc. See the
+included default menu.rc for examples and available commands.</p>
+<p>Lines starting with # or ! are ignored.</p>
+<p>Each menu item consists of 1..3 fields:</p>
+<pre>[command]  (label)  {data}
+</pre>
+<table width=100%><tr><th width=37%>Menu structure</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>[begin] (label)</td>
+<td>indicates the begin of the menu, label is optional.</td>
+</tr>
+<tr><td width=37%>[end]</td>
+<td>indicates the end of the menu or submenu, required.</td>
+</tr>
+<tr><td width=37%>[submenu] (label)</td>
+<td>inserts a submenu into the menu, must be closed by [end]</td>
+</tr>
+<tr><td width=37%>[include] {filename}</td>
+<td>This will continue reading items from the indicated file.</td>
+</tr>
+<tr><td width=37%>[nop] (label)</td>
+<td>inserts an inactive item with an optional label</td>
+</tr>
+<tr><td width=37%>[sep]</td>
+<td>inserts a separator (same as [nop])</td>
+</tr>
+</table>
+<br/>&nbsp;
+<table width=100%><tr><th width=37%>Inserting submenus</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>[path] (label) {folder}</td>
+<td>inserts an submenu with a folder from your computer as specified.</td>
+</tr>
+<tr><td width=37%>[path] (label) {folder1|folder2}</td>
+<td>merges two folders into a single menu</td>
+</tr>
+<tr><td width=37%>[insertpath] {folder}</td>
+<td>inserts any items from the specified folder into the current menu.</td>
+</tr>
+<tr><td width=37%>[stylesmenu] (label) {folder}</td>
+<td>insert a folder with style files</td>
+</tr>
+<tr><td width=37%>[stylesdir] {folder}</td>
+<td>insert stylefiles from the specified folder into the current menu.</td>
+</tr>
+<tr><td width=37%>[config] (label)</td>
+<td>inserts the ConfigMenu.</td>
+</tr>
+<tr><td width=37%>[workspaces] (label)</td>
+<td>insert the workspaces menu.</td>
+</tr>
+<tr><td width=37%>[tasks] (label)</td>
+<td>insert a menu with the currenly iconized tasks.</td>
+</tr>
+</table>
+<p>In addition to normal paths like {c:/program files}, a number of items may
+be used to indicate a special shellfolder. See shellfolders.rc for examples.</p>
+<table width=100%><tr><th width=37%>Blackbox commands</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>[style] (label) {filename}</td>
+<td>insert an item to apply a new style.</td>
+</tr>
+<tr><td width=37%>[toggleplugins] (label)</td>
+<td>show/hide plugins</td>
+</tr>
+<tr><td width=37%>[aboutplugins] (label)</td>
+<td>display 'about plugins' info</td>
+</tr>
+<tr><td width=37%>[aboutstyle] (label)</td>
+<td>display 'about style' info</td>
+</tr>
+<tr><td width=37%>[reconfig] (label)</td>
+<td>re-read the configuration files</td>
+</tr>
+<tr><td width=37%>[restart] (label)</td>
+<td>reload plugins</td>
+</tr>
+<tr><td width=37%>[exit] (label)</td>
+<td>exit blackbox</td>
+</tr>
+</table>
+<br/>&nbsp;
+<table width=100%><tr><th width=37%>Edit commands</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>[edit] (label) {file}</td>
+<td>edit the specified 'file'</td>
+</tr>
+<tr><td width=37%>[editstyle] (label)</td>
+<td>edit the current style</td>
+</tr>
+<tr><td width=37%>[editmenu] (label)</td>
+<td>edit menu.rc</td>
+</tr>
+<tr><td width=37%>[editlugins] (label)</td>
+<td>edit plugins.rc</td>
+</tr>
+<tr><td width=37%>[editextensions] (label)</td>
+<td>edit extension.rc</td>
+</tr>
+<tr><td width=37%>[editblackbox] (label)</td>
+<td>edit blackbox.rc</td>
+</tr>
+</table>
+<p>The 'edit' commands use the 'blackbox.editor', which is specified in
+extensions.rc. For example:</p>
+<pre>blackbox.editor: plugins\bbnote\bbnote.exe
+</pre>
+<table width=100%><tr><th width=37%>External commands</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>[exec] (label) {command}</td>
+<td>run a program or execute a <a href="bblean_inc2.htm#broadcast_messages">Broadcast&nbsp;message</a>.</td>
+</tr>
+<tr><td width=37%>[run] (label)</td>
+<td>show the windows 'run' dialog</td>
+</tr>
+</table>
+<br/>&nbsp;
+<table width=100%><tr><th width=37%>Shutdown commands</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>[logoff] (label)</td>
+<td>logoff (*)</td>
+</tr>
+<tr><td width=37%>[suspend] (label)</td>
+<td>suspend the computer (*)</td>
+</tr>
+<tr><td width=37%>[reboot] (label)</td>
+<td>reboot the computer (*)</td>
+</tr>
+<tr><td width=37%>[shutdown] (label)</td>
+<td>shutdown the computer (*)</td>
+</tr>
+<tr><td width=37%>[lockworkstation] (label)</td>
+<td>lock workstation (*)</td>
+</tr>
+<tr><td width=37%>[hibernate] (label)</td>
+<td>hibernate (*)</td>
+</tr>
+<tr><td width=37%>[exitwindows] (label)</td>
+<td>display standard shutdown dialog</td>
+</tr>
+</table>
+<p>(*) You can add {-quiet} for no confirmation.</p>
+<a class="label" name="backgrounds">&nbsp;</a><h2>Backgrounds</h2>
+<p>Generally, the background can be an image or a dynamically generated
+gradient. The background is specified in the current style with
+a line that starts like:</p>
+<pre>rootCommand: bsetroot -full &quot;backgrounds\your_image.jpg&quot;
+</pre>
+<p>Click on bsetroot.exe to get some help on it.</p>
+<p>bbLean uses bsetroot.exe to generate the background and then either
+displays it on it's own or let's Windows set the wallpaper, depending
+on the setting of 'Smart Wallpaper' in 'config -&gt; graphics'.</p>
+<p>Also any processing of the rootCommand may be disabled in
+'config -&gt; graphics'.</p>
+<a class="label" name="desktop_margins">&nbsp;</a><h2>Desktop&nbsp;Margins</h2>
+<p>Desktop Margins are the area of the screen, which is not covered by maximized
+windows. They can be set to adjust automatically according to the placement of
+the bars or manually from the configuration menu.</p>
+<ul><li>'auto' (-1 in extensions.rc) means automatic adjustment to the toolbar's or Systembar's thickness.
+<li>Values '0..x' mean fixed margin settings in pixels.
+<li>With 'Full Maximisation' all margin settings are ignored.</ul>
+<p>Multiple monitors: Automatic adjustement is supposed to
+work indenpendently on monitors. Manual margins for 2nd monitor
+may be set in extensions.rc:</p>
+<pre>blackbox.desktop.2.marginLeft: ...
+</pre>
+<a class="label" name="sticky_windows">&nbsp;</a><h2>Sticky&nbsp;Windows</h2>
+<p>List each application to be common among all workspaces on a separate
+line in 'StickyWindows.ini' (located in the blackbox.exe's folder), save
+the changes, and 'reconfigure.'</p>
+<p>Click 'Show Appnames' from 'config -&gt; misc.' to get a list of currently
+running tasks and their internal names.</p>
+<a class="label" name="set_as_shell">&nbsp;</a><h2>Set&nbsp;as&nbsp;Shell</h2>
+<p>bbLean can be run on top of explorer or installed as default shell.</p>
+<p>To <b>install bblean</b> as default shell, use the install option from
+the included default menu or type in the commandline:</p>
+<pre>blackbox -install
+</pre>
+<p>On Win2k/XP you will be asked if you want to install bbLean for
+all users or for the current user only.</p>
+<p>&nbsp;</p>
+<p>To <b>reset explorer</b> as shell, use the uninstall option from the included
+default menu or type in the commandline:</p>
+<pre>blackbox -uninstall
+</pre>
+<p>In either case, the new setting will take effect after the next reboot.</p>
+<p>Notes:</p>
+<ul><li>With <b>unexpected problems</b> after installation, hold down 'Control' during startup. This will give you the option to uninstall bblean before it actually loads.</ul>
+<ul><li>When running over explorer the systray does not work perfectly in some cases.</ul>
+<a class="label" name="commandline">&nbsp;</a><h2>CommandLine</h2>
+<table width=100%><tr><th width=37%>Switches</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>-help</td>
+<td>Show version and commandline info</td>
+</tr>
+<tr><td width=37%>-install</td>
+<td>Install Blackbox as default shell</td>
+</tr>
+<tr><td width=37%>-uninstall</td>
+<td>Reset Explorer as default shell</td>
+</tr>
+<tr><td width=37%>-nostartup</td>
+<td>Do not run startup programs</td>
+</tr>
+<tr><td width=37%>-rc &lt;file&gt;</td>
+<td>Specify alternate blackbox.rc</td>
+</tr>
+</table>
+<a class="label" name="broadcast_messages">&nbsp;</a><h2>Broadcast&nbsp;Messages</h2>
+<p>Broadcast messages (Broams) are messages sent to Blackbox and plugins
+to trigger some actions.</p>
+<p>They may be sent</p>
+<ul><li>from the menu, like:</ul>
+<pre>[exec] (label) {@BroadcastMessage}
+</pre>
+<ul><li>from a key shortcut, in bbkeys.rc:</ul>
+<pre>..., WithAction(ExecCommand), DoThis(@BBCore.ShowMenu)
+</pre>
+<ul><li>by other means, for instance by a 'BBIcon' or 'BBInterface'.</ul>
+<p>Any command, which toggles a setting, can have an optional argument
+'true' or 'false' to specify the new state.</p>
+<p>&nbsp;</p>
+<h4>Broadcast&nbsp;messages&nbsp;recognized&nbsp;by&nbsp;the&nbsp;core:</h4>
+<p>&nbsp;</p>
+<table width=100%><tr><th width=37%>Menu</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>@BBCore.ShowMenu</td>
+<td>show pinned menu, or main menu as default</td>
+</tr>
+<tr><td width=37%>@BBCore.ShowMenu Root</td>
+<td>show the main menu</td>
+</tr>
+<tr><td width=37%>@BBCore.ShowMenu&nbsp;Workspaces</td>
+<td>show workspaces menu</td>
+</tr>
+<tr><td width=37%>@BBCore.ShowMenu Icons</td>
+<td>show icons menu (minimized tasks)</td>
+</tr>
+<tr><td width=37%>@BBCore.ShowMenu&nbsp;Configuration</td>
+<td>show configuration menu</td>
+</tr>
+<tr><td width=37%>@BBCore.ShowMenu &lt;path&gt;</td>
+<td>show folder as specified</td>
+</tr>
+<tr><td width=37%>@BBCore.ShowMenu&nbsp;&lt;menu.rc&gt;</td>
+<td>display alternative menu as specified</td>
+</tr>
+<tr><td width=37%>@BBCore.HideMenu</td>
+<td>hide menus, except the pinned ones</td>
+</tr>
+</table>
+<br/>&nbsp;
+<table width=100%><tr><th width=37%>Windows</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>@BBCore.PrevWindow</td>
+<td>activate previous window</td>
+</tr>
+<tr><td width=37%>@BBCore.NextWindow</td>
+<td>activate next window</td>
+</tr>
+<tr><td width=37%>@BBCore.PrevWindowAllWorkspaces</td>
+<td>activate previous window (all workspaces)</td>
+</tr>
+<tr><td width=37%>@BBCore.NextWindowAllWorkspaces</td>
+<td>activate next window (all workspaces)</td>
+</tr>
+<tr><td width=37%>@BBCore.RaiseWindow</td>
+<td>bring bottom window on top</td>
+</tr>
+<tr><td width=37%>@BBCore.LowerWindow</td>
+<td>send top window to bottom</td>
+</tr>
+<tr><td width=37%>@BBCore.ShadeWindow</td>
+<td>shade window</td>
+</tr>
+<tr><td width=37%>@BBCore.CloseWindow</td>
+<td>close window</td>
+</tr>
+<tr><td width=37%>@BBCore.MinimizeWindow</td>
+<td>minimize window</td>
+</tr>
+<tr><td width=37%>@BBCore.MaximizeWindow</td>
+<td>maximize window</td>
+</tr>
+<tr><td width=37%>@BBCore.MaximizeVertical</td>
+<td>maximize window vertically</td>
+</tr>
+<tr><td width=37%>@BBCore.MaximizeHorizontal</td>
+<td>maximize window horizontally</td>
+</tr>
+<tr><td width=37%>@BBCore.RestoreWindow</td>
+<td>restore window</td>
+</tr>
+</table>
+<br/>&nbsp;
+<table width=100%><tr><th width=37%>All Windows</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>@BBCore.MinimizeAll</td>
+<td>minimize all windows</td>
+</tr>
+<tr><td width=37%>@BBCore.RestoreAll</td>
+<td>restore all windows</td>
+</tr>
+<tr><td width=37%>@BBCore.Cascade</td>
+<td>cascade windows</td>
+</tr>
+<tr><td width=37%>@BBCore.TileVertical</td>
+<td>tile windows vertically</td>
+</tr>
+<tr><td width=37%>@BBCore.TileHorizontal</td>
+<td>tile windows horizontally</td>
+</tr>
+</table>
+<br/>&nbsp;
+<table width=100%><tr><th width=37%>Workspaces</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>@BBCore.LeftWorkspace</td>
+<td>previous workspace</td>
+</tr>
+<tr><td width=37%>@BBCore.RightWorkspace</td>
+<td>next workspace</td>
+</tr>
+<tr><td width=37%>@BBCore.MoveWindowLeft</td>
+<td>move window to previous workspace</td>
+</tr>
+<tr><td width=37%>@BBCore.MoveWindowRight</td>
+<td>move window to next workspace</td>
+</tr>
+<tr><td width=37%>@BBCore.GatherWindows</td>
+<td>gather all windows in the current workspace</td>
+</tr>
+<tr><td width=37%>@BBCore.AddWorkspace</td>
+<td>add another workspace</td>
+</tr>
+<tr><td width=37%>@BBCore.DelWorkspace</td>
+<td>delete the last workspace</td>
+</tr>
+<tr><td width=37%>@BBCore.EditWorkspaceNames</td>
+<td>edit the names of workspaces, separate by commata</td>
+</tr>
+<tr><td width=37%>@BBCore.SwitchToWorkspace&nbsp;#n</td>
+<td>switch to the specified workspace number (1..n)</td>
+</tr>
+</table>
+<br/>&nbsp;
+<table width=100%><tr><th width=37%>Blackbox</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>@BBCore.toggleplugins</td>
+<td>hide/show plugins (if configured to 'toggle with plugins')</td>
+</tr>
+<tr><td width=37%>@BBCore.aboutstyle</td>
+<td>display style info</td>
+</tr>
+<tr><td width=37%>@BBCore.aboutplugins</td>
+<td>display plugin info</td>
+</tr>
+<tr><td width=37%>@BBCore.reconfig</td>
+<td>reload style-settings and rc-settings</td>
+</tr>
+<tr><td width=37%>@BBCore.restart</td>
+<td>unload and reload all plugins</td>
+</tr>
+<tr><td width=37%>@BBCore.exit [-q]</td>
+<td>exit the blackbox shell. -q(uiet) = no confirmation.</td>
+</tr>
+</table>
+<br/>&nbsp;
+<table width=100%><tr><th width=37%>Edit</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>@BBCore.editstyle</td>
+<td>run the 'blackbox editor' on the current style</td>
+</tr>
+<tr><td width=37%>@BBCore.editmenu</td>
+<td>run the 'blackbox editor' on menu.rc</td>
+</tr>
+<tr><td width=37%>@BBCore.editplugins</td>
+<td>run the 'blackbox editor' on plugins.rc</td>
+</tr>
+<tr><td width=37%>@BBCore.editextensions</td>
+<td>run the 'blackbox editor' on extensions.rc</td>
+</tr>
+<tr><td width=37%>@BBCore.editblackbox</td>
+<td>run the 'blackbox editor' on blackbox.rc</td>
+</tr>
+<tr><td width=37%>@BBCore.edit &lt;file&gt;</td>
+<td>run the 'blackbox editor' on the specified file</td>
+</tr>
+</table>
+<p>The 'blackbox editor' is specified in extensions.rc.</p>
+<p>&nbsp;</p>
+<table width=100%><tr><th width=37%>Shutdown</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>@BBCore.shutdown [-q]</td>
+<td>shutdown the computer. -q(uiet) = no confirmation.</td>
+</tr>
+<tr><td width=37%>@BBCore.reboot [-q]</td>
+<td>reboot the computer</td>
+</tr>
+<tr><td width=37%>@BBCore.logoff [-q]</td>
+<td>logoff</td>
+</tr>
+<tr><td width=37%>@BBCore.hibernate [-q]</td>
+<td>hibernate</td>
+</tr>
+<tr><td width=37%>@BBCore.suspend [-q]</td>
+<td>suspend the computer</td>
+</tr>
+<tr><td width=37%>@BBCore.lockworkstation</td>
+<td>lock workstation</td>
+</tr>
+<tr><td width=37%>@BBCore.exitwindows</td>
+<td>display standard shutdown dialog</td>
+</tr>
+</table>
+<br/>&nbsp;
+<table width=100%><tr><th width=37%>Other</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>@BBCore.exec &lt;command&gt;</td>
+<td>execute a command</td>
+</tr>
+<tr><td width=37%>@BBCore.style &lt;stylefile&gt;</td>
+<td>apply the specified style</td>
+</tr>
+<tr><td width=37%>@BBCore.rootCommand&nbsp;&lt;command&gt;</td>
+<td>set wallpaper</td>
+</tr>
+<tr><td width=37%>@BBCore.run</td>
+<td>display the windows 'run' dialog</td>
+</tr>
+<tr><td width=37%>@BBCore.showAppnames</td>
+<td>display a list of running tasks.</td>
+</tr>
+<tr><td width=37%>@BBCore.message&nbsp;&lt;message&gt;</td>
+<td>display message box for confirmation.</td>
+</tr>
+</table>
+<br/>&nbsp;
+<table width=100%><tr><th width=37%>Configuration</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td width=37%>@BBCfg.plugin.load&nbsp;&lt;plugin&gt;</td>
+<td>load/unload a plugin</td>
+</tr>
+<tr><td width=37%>@BBCfg.plugin.inslit&nbsp;&lt;plugin&gt;</td>
+<td>toggle slit mode for plugin</td>
+</tr>
+<tr><td width=37%>@BBCfg.plugin.add&nbsp;&lt;pathToPlugin&gt;</td>
+<td>add a plugin to the list and load it.</td>
+</tr>
+</table>
+<p>Use the <b>Show Bro@ms</b> option in config-&gt;menus to view other broadcast messages for core configuration and plugins.</p>
+<h4>Mini&nbsp;Script</h4>
+<p>This is to execute multiple commands on one broadcast message. The
+command list must be enclosed into '[&nbsp;]'s, and single commands are
+separated by '|'s and may be broams or external executables.</p>
+<pre>@Script [@SomeBroam | some_prog arguments | @AnotherBroam]
+</pre>
+<a class="label" name="clock_formatting">&nbsp;</a><h2>Clock&nbsp;Formatting</h2>
+<p>These codes are used for formatting the clock displays, for ...</p>
+<ul><li>The Toolbar, in blackbox.rc:</ul>
+<pre>session.screen0.strftimeFormat: %#I:%M:%S %p
+</pre>
+<ul><li>bbLeanbar, in bbleanbar.rc:</ul>
+<pre>bbleanbar.strftimeFormat: %d %a %#H:%M
+</pre>
+<table width=100%><tr><th width=37%>Label</th>
+<th>Value</th>
+</tr>
+<tr><td width=37%>%a</td>
+<td>Abbreviated weekday name</td>
+</tr>
+<tr><td width=37%>%A</td>
+<td>Full weekday name</td>
+</tr>
+<tr><td width=37%>%b</td>
+<td>Abbreviated month name</td>
+</tr>
+<tr><td width=37%>%B</td>
+<td>Full month name</td>
+</tr>
+<tr><td width=37%>%c</td>
+<td>Date and time representation appropriate for locale</td>
+</tr>
+<tr><td width=37%>%d</td>
+<td>Day of month as decimal number (01 - 31)</td>
+</tr>
+<tr><td width=37%>%H</td>
+<td>Hour in 24-hour format (00 - 23)</td>
+</tr>
+<tr><td width=37%>%I</td>
+<td>Hour in 12-hour format (01 - 12)</td>
+</tr>
+<tr><td width=37%>%j</td>
+<td>Day of year as decimal number (001 - 366)</td>
+</tr>
+<tr><td width=37%>%m</td>
+<td>Month as decimal number (01 - 12)</td>
+</tr>
+<tr><td width=37%>%M</td>
+<td>Minute as decimal number (00 - 59)</td>
+</tr>
+<tr><td width=37%>%p</td>
+<td>Current locale's A.M./P.M. indicator for 12-hour clock</td>
+</tr>
+<tr><td width=37%>%S</td>
+<td>Second as decimal number (00 - 59)</td>
+</tr>
+<tr><td width=37%>%U</td>
+<td>Week of year as decimal number, with Sunday as first day of week (00 - 53)</td>
+</tr>
+<tr><td width=37%>%w</td>
+<td>Weekday as decimal number (0 - 6; Sunday is 0)</td>
+</tr>
+<tr><td width=37%>%W</td>
+<td>Week of year as decimal number, with Monday as first day of week (00 - 53)</td>
+</tr>
+<tr><td width=37%>%x</td>
+<td>Date representation for current locale</td>
+</tr>
+<tr><td width=37%>%X</td>
+<td>Time representation for current locale</td>
+</tr>
+<tr><td width=37%>%y</td>
+<td>Year without century, as decimal number (00 - 99)</td>
+</tr>
+<tr><td width=37%>%Y</td>
+<td>Year with century, as decimal number</td>
+</tr>
+<tr><td width=37%>%z</td>
+<td>Either the time-zone name or time zone abbreviation, depending on registry settings; no characters if time zone is unknown</td>
+</tr>
+<tr><td width=37%>%Z</td>
+<td>same as above</td>
+</tr>
+<tr><td width=37%>%%</td>
+<td>Percent sign</td>
+</tr>
+</table>
+<p>The # flag modifies some of the above as follows:</p>
+<table width=100%><tr><th width=37%>Format</th>
+<th>Effect</th>
+</tr>
+<tr><td width=37%>%#c</td>
+<td>Long date and time representation, appropriate for current locale.</td>
+</tr>
+<tr><td width=37%>%#x</td>
+<td>Long date representation, appropriate to current locale.</td>
+</tr>
+<tr><td width=37%>%#d,H,I,j,m,M,S,U,w,W,y,Y</td>
+<td>Remove leading zeros (if any).</td>
+</tr>
+<tr><td width=37%>%#a,A,b,B,p,X,z,Z,%</td>
+<td># flag is ignored</td>
+</tr>
+</table>
+<p>Note: Check or unset the TZ environment variable on your computer to correct timezone issues.</p>
+<a class="label" name="issues">&nbsp;</a><h2>Issues</h2>
+<dl><dt>Find files:</dt>
+<dd>Does not work from the context menu. Hit F3 or Ctrl-F in an explorer window instead. Or use an alternate tool like Agent Ransack...<dd></dl>
+<dl><dt>Network Places don't update:</dt>
+<dd>This also does not seem to work without the explorer shell.<dd></dl>
+<dl><dt>Delay when booting windows XP:</dt>
+<dd>Use classic Logon and turn off the welcome screen.<dd></dl>
+<dl><dt>Explorer shell loads when you wanted to open the explorer filemanager:</dt>
+<dd>Install blackbox as shell again. See -> <a href="bblean_inc2.htm#set_as_shell">Set as Shell</a><dd></dl>
+<dl><dt>Plugins conflict with gaming:</dt>
+<dd>Disable 'Always On Top' and 'AutoHide' with plugins. Or hit Win+Ctrl+P to toggle plugin visibility.<dd></dl>
+<dl><dt>Drawing issues with apps, inresponsive apps:</dt>
+<dd>See bbLeanSkin's readme.txt for details on how to exclude applications from being skinned.<dd></dl>
+<dl><dt>Titlebars flickers:</dt>
+<dd>May happen with bbLeanSkin when the caption text is frequently updated. Can't be fixed.<dd></dl>
+<dl><dt>SendTo items empty or scrambled:</dt>
+<dd>Turn off 'ClearType' fonts (XP).<dd></dl>
+<dl><dt>Lost Windows, other issues with workspaces:</dt>
+<dd>Hit Win-G to 'Gather Windows' in the current workspace. If the problem continues, try 'Alternate Workspace Method' off or on, respectively. With Winamp, checkout it's 'LiteStep Virtual Desktop' options, or add it to <a href="bblean_inc2.htm#sticky_windows">StickyWindows.ini</a>.<dd></dl>
+<dl><dt>Wrong timezone with clock displays:</dt>
+<dd>Either remove your system's 'TZ' environment variable or set it correctly.<dd></dl>
+<dl><dt>Language switch hotkey does not work:</dt>
+<dd>Try changing it to alt+shift, then back to ctrl+shift.<dd></dl>
+<dl><dt>CPU usage:</dt>
+<dd>Tray Icon saturation set to 255 and hue to 0 may save a some percent when there are many tray icons on the bar.<dd></dl>
+<dl><dt>Memory usage:</dt>
+<dd>bbLean uses about 1..2MB. The operating system (i.e. XP) may assign temporarily a greater amount in it's trade of speed and available resources.<dd></dl>
+
+<p>&nbsp;</p>
+<p class="footer">Copyright 2003-2005 grischka@users.sourceforge.net</p>
+</body>
+</html>

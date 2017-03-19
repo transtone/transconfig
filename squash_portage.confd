@@ -1,0 +1,19 @@
+# /etc/conf.d/squash_portage
+
+# SQFS_DIRNAME points to the directory that will contain the sqfs
+# images, recommended value is /var/portage
+SQFS_DIRNAME="/sqfs"
+
+# Leave PORTAGE_RW empty for use with tmpfs, a ram-based filesystem,
+# This is recommended unless you are short of RAM
+PORTAGE_RW=""
+
+# 用squashfs将镜像挂载到PORTAGE_RO
+PORTAGE_RO="/sqfs/portage_ro"
+
+# 用aufs将porage挂载到 PORTAGE_AUFS 
+PORTAGE_AUFS="/sqfs/portages"
+
+# If you need more then just emerge --sync, or are using another
+# package manager add them here. Example SYNC_CMDS="/usr/bin/layman -S; /usr/bin/eix-sync"
+SYNC_CMDS="layman -S; /usr/bin/eix-sync"

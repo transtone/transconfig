@@ -1,0 +1,5 @@
+set $memcached_key $host$uri;
+memcached_pass memcached;
+fastcgi_pass 127.0.0.1:9008;
+fastcgi_index index.html;
+include fastcgi_params;

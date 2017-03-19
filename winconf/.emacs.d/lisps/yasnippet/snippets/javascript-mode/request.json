@@ -1,0 +1,11 @@
+#name : Request.JSON (only in mootools)
+#by : fancyoung
+# --
+new Request.JSON({
+    url: '$1',
+    method: '${2:post}',
+    data: {$3},
+    onComplete: function(result){
+	$0
+    }
+}).send();

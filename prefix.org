@@ -1,0 +1,89 @@
+* TODO prefix
+  
+** gentoo in REHL hostmonster
+get http://overlays.gentoo.org/proj/alt/browser/trunk/prefix-overlay/scripts/bootstrap-prefix.sh?format=txt
+$ export EPREFIX="$HOME/gentoo"
+$ export PATH="$EPREFIX/usr/bin:$EPREFIX/bin:$EPREFIX/tmp/usr/bin:$EPREFIX/tmp/bin:$PATH"
+$ chmod 755 bootstrap-prefix.sh
+$ ./bootstrap-prefix.sh $EPREFIX tree
+$ ./bootstrap-prefix.sh $EPREFIX/tmp make
+$ ./bootstrap-prefix.sh $EPREFIX/tmp wget
+$ ./bootstrap-prefix.sh $EPREFIX/tmp sed
+$ ./bootstrap-prefix.sh $EPREFIX/tmp python
+$ ./bootstrap-prefix.sh $EPREFIX/tmp coreutils6
+$ ./bootstrap-prefix.sh $EPREFIX/tmp findutils3
+$ ./bootstrap-prefix.sh $EPREFIX/tmp tar
+$ ./bootstrap-prefix.sh $EPREFIX/tmp patch
+$ ./bootstrap-prefix.sh $EPREFIX/tmp grep
+$ ./bootstrap-prefix.sh $EPREFIX/tmp gawk
+$ ./bootstrap-prefix.sh $EPREFIX/tmp bash
+$ ./bootstrap-prefix.sh $EPREFIX portage
+
+$ export LDFLAGS="-L${EPREFIX}/usr/lib -R${EPREFIX}/usr/lib -L${EPREFIX}/lib -R${EPREFIX}/lib 
+$ export CPPFLAGS="-I${EPREFIX}/usr/include"
+$ hash -r
+$ export USE="-berkdb -fortran -gdbm -nls -pcre -ssl"
+$ emerge --oneshot sed
+$ emerge --oneshot wget
+$ emerge --oneshot bash
+$ emerge --oneshot --nodeps baselayout-prefix
+$ emerge --oneshot --nodeps lzma-utils
+$ emerge --oneshot --nodeps m4
+$ emerge --oneshot --nodeps flex
+$ emerge --oneshot --nodeps bison
+$ emerge --oneshot --nodeps binutils-config
+$ emerge --oneshot --nodeps binutils
+$ emerge --oneshot --nodeps gcc-config
+$ emerge --oneshot --nodeps gcc
+
+$ unset LDFLAGS CPPFLAGS
+$ emerge --oneshot coreutils
+$ emerge --oneshot findutils
+$ emerge --oneshot tar
+$ emerge --oneshot grep
+$ emerge --oneshot patch
+$ emerge --oneshot gawk
+$ emerge --oneshot make
+$ emerge --oneshot --nodeps file
+$ emerge --oneshot --nodeps eselect
+
+$ env FEATURES="-collision-protect" emerge --oneshot portage
+$ rm -Rf $EPREFIX/tmp/*
+$ hash -r
+
+
+
+
+
+
+
+* 简历
+教育经历：1999-2003 衡阳师范学院 数学及应用数学专业 理学学士
+工作经历：
+2003.6-2003.9 湖南时运电脑衡阳分公司   pc装机和维护
+2003.9-2004.9 上海金教电子有限公司  体育测试管理软件开发，修改，维护
+2004.9-2010.3 永州职业技术学院  传媒技术系教员
+2010.3-2012.3 湖南车惠通网络科技有限公司  技术总监
+2012.3至今 中环星科科技（湖南）有限公司  技术总监
+项目经历：
+时运电脑：新装网吧一个，新装教学机房三个
+当时帮同学配机器比较多，一般都是买了零件回去自己装，经常出入不同的店铺找配件比价格，跟电脑公司都很熟，正好最常去的这家缺人手，而暑假学校还没有开课，就在那里呆了几个月。在电脑城装机是比较累的，除了要现场装机，还要上门服务，特别要学会在电话里通过客户对故障的描述来判断问题所在，以便提前做好准备，免得白跑一趟。碰到大单的时候往往要加班，所作的装机、点亮、布线、调试系统其实是体力活。当时的ghost还不能很好的安装xp，要求装98的大有人在，同时所安装的机型较多，驱动比较难找（很多时候主板自带驱动盘的驱动都安装不上），没事的时候研究了一下系统克隆和驱动集成。
+上海金教：体育测试管理软件foxpro版的修改和维护，jsp版的开发和前期推广
+当时大学要求所有学生每年必须通过体育测试，必须每年达标才能毕业，于是就有了体育测试器材和软件的市场。当时公司快速开发了一套foxpro版程序，配合丹东天康公司体测器材，拿下了近半上海大学的体育系，包括复旦大学，上海交大，东华大学，上海外国大学，上海立信，财经大学等，还有外省市的大学，以上海周边的居多。我的工作是维护售出的器材和软件。软件经常要根据各学校的不同进行特殊修改，而foxpro本身也不算稳定，操作不当就会出问题，维护起来很麻烦，平时还好，每个学期期末的时候就特别忙，要配合学校收集测试数据，还要根据具体情况调整报表，各大高校都跑得很勤。考虑到维护量太大，于是公司和交大合作，共同用jsp重新开发了一套系统。主开发是交大的两个研究生，我主要做后期的测试和修改。
+永州职院：计算机专业教学。课程有网络基础，路由器交换机配置，Linux服务器架设，网页制作，网站建设等
+在学校呆了将近6年，课程比较多，每周上课在20-24节左右，还要带班。上课的同时兼管着校园网的中心机房和教学机房。和另一位同事一起共同开发了教务教学管理系统，用的JSP开发，我主要负责服务器运行环境，数据库设计和前台编码。
+车惠通：通信服务器维护，网站建设和维护
+车惠通做的是个人通信业务，当时是以网站工程师入职的，制作架设公司网站，后来又把后台管理部分整合了进去。公司通信服务器用的是语音板卡+Linux系统+呼叫软件+语音识别软件的架构，也是我负责的维护和升级。
+中环：400通信平台，呼叫中心和一些小项目
+400呼叫系统用的是java+postgre，因为部署的需要，呼叫控制程序和前台业务程序是分开的，通话记录和前台设置通过java脚本监控互传。
+呼叫中心是一个新建的项目，用的是交换机+控制软件+sip座席的方式。
+项目方面有工务段的 录音监控及400自动报备系统 和一个 gps车辆监控及定点无线监控系统。
+
+技术特点：
+个人很喜欢Linux和开源软件，给学生上过这么多年课，这些年也一直在使用和维护这样一些服务器和软件，不敢说精通，至少也是相当熟悉吧.
+开发语言最常用的是python和php，jsp能看但写得少。
+网页开发后台比较喜欢用django和flask，前台喜欢用jquery和bootstrap框架，数据表格则用的datatables。对ie的bug有很切身的体会，前台基本能做到对常用浏览器兼容。
+数据库方面对mysql和postgresql很熟悉，今年尝试在项目中使用redis。
+网站服务器方面，对apache/lighttpd/nginx/cherokee等熟悉一些，tomcat/iis熟悉但不喜欢用。
+另外喜欢研究一些小东西，虚拟机，ramos，翻译技术文档等。
+

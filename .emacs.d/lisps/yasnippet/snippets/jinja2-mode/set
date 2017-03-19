@@ -1,0 +1,4 @@
+#name : {% set ... %}
+#group : set
+# --
+{% set $1 %}$0

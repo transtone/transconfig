@@ -1,0 +1,4 @@
+#contributor : transtone <zm3345@gmail.com>
+#name : get("",value,function ) ...
+# --
+get("$1",{$2},function(data){ $0 });

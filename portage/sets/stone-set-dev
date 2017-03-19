@@ -1,0 +1,13 @@
+net-proxy/haproxy
+net-misc/memcached
+www-servers/tengine
+www-servers/cherokee
+#www-servers/uwsgi-init-scripts
+net-ftp/vsftpd
+net-misc/unison
+net-misc/urlview
+mail-mta/exim
+net-fs/nfs-utils
+sys-fs/aufs-util
+net-p2p/ncdc
+dev-python/mysql-python

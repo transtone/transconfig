@@ -1,0 +1,27 @@
+#!/bin/sh
+# This script created by AQEMU
+/usr/bin/qemu-system-x86_64 \
+-enable-kvm \
+-soundhw es1370 -vga qxl -m 512 -no-fd-bootchk -localtime -boot d -usbdevice tablet -daemonize -name "Windows XP" \
+-drive file="/home/zhou/bin/winxp",if=virtio -cdrom "/home/zhou/systemrescuecd-x86-4.1.0.iso" \
+-net nic,vlan=1,macaddr=52:54:00:9f:71:52 -net tap,vlan=1,ifname=tap0,script=no -net nic,vlan=0,macaddr=52:54:00:72:95:06,model=virtio -net user,vlan=0 \
+-spice port=5930,disable-ticketing  \
+-device virtio-serial -chardev spicevmc,id=vdagent,name=vdagent \
+-readconfig ~/bin/ich9-ehci-uhci.cfg \
+-device virtserialport,chardev=vdagent,name=com.redhat.spice.0 \
+-chardev spicevmc,name=usbredir,id=usbredirchardev1 -device usb-redir,chardev=usbredirchardev1,id=usbredirdev1,debug=3 \
+-chardev spicevmc,name=usbredir,id=usbredirchardev2 -device usb-redir,chardev=usbredirchardev2,id=usbredirdev2,debug=3 \
+-chardev spicevmc,name=usbredir,id=usbredirchardev3 -device usb-redir,chardev=usbredirchardev3,id=usbredirdev3,debug=3 \
+
+# -drive file="/sqfs/vbox/kvm/xp",if=virtio \
+# -drive file="/sqfs/vbox/kvm/xp" -drive file="/sqfs/vbox/kvm/kvm-xp.img",if=virtio \
+# -hdb /sqfs/vbox/kvm/kvm-xp.img
+# kvm安装小记：
+# 安装包：qemu-kvm[spice] spice-gtk aqemu
+# 碰到的问题：1.virtio磁盘驱动引起蓝屏问题/2.vdagent服务不能启动无法共享剪切板问题/3.网卡不能识别的问题/4.aqemu-0.82没有virt-serial,usbdevice tablet等选项.
+# 解决方法：
+# 1.最新的驱动有问题，只能用1.16版本的驱动。
+# 2.要正确设置virt-serial参数，安装相应驱动后，vdserivce才能启动，vdagent功能才能使用。vdagent用于实现剪切板共享。启动了vdservice也还需要更新spice-gtk到最0.9，老版本的协议不一样。在放狗搜索之前，还是要先看看官方文档啊：http://spice-space.org/page/Whiteboard/AgentProtocol
+# 3.网卡的参数比较多，每块都是以 -net nic 开始的，可以用aqemu来生成网卡启动参数。
+# 4.等待aqemu的升级版吧，希望能增加这些功能。 
+

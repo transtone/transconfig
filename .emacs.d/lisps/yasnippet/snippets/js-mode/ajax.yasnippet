@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: js#ajax
+# key: ajax
+# --
+$.ajax({
+      url: this.props.ajaxUrl,
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        $0
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.ajaxUrl, status, err.toString());
+      }.bind(this)
+});

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: ReactDOM.renderall
+# key: rra
+# --
+ReactDOM.render(
+  <Provider store={${1:store}}>
+    <${2:App} />
+  </Provider>,
+  document.getElementById('${3:root}')
+);$0

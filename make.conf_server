@@ -1,0 +1,47 @@
+# These settings were set by the catalyst build script that automatically built this stage
+# Please consult /etc/make.conf.example for a more detailed example
+CFLAGS="-O2 -march=core2 -pipe"
+CHOST="x86_64-pc-linux-gnu"
+CXXFLAGS="${CFLAGS}"
+MAKEOPTS="-j17"
+#LDFLAGS="-Wl,--sort-common "
+
+LC_ALL="C"
+FEATURES="sandbox userfetch parallel-fetch "
+EMERGE_DEFAULT_OPTS="--autounmask-write=y --keep-going=y --with-bdeps=y "
+
+USE="-qt -qt3 -xine -kde -doc -debug -gnome -gstreamer -cups -qt4 -gtk -gtk2 -gtk3 -X \
+mmx mmxext sse sse2 ssse3 vim vim-syntax curl openssl fastcgi gpg gnutls \
+bash-completion zsh-completion logrotate mysql postgres apache2 cron spice "
+
+#ACCEPT_KEYWORDS="~amd64"
+ACCEPT_LICENSE="*"
+
+PORTAGE_ECLASS_WARNING_ENABLE="0"
+PORTAGE_TMPFS="/dev/shm"
+PORTAGE_TMPDIR="/dev/shm"
+BUILD_PREFIX="/dev/shm"
+PORTAGE_NICENESS="15"
+PORTAGE_IONICE_COMMAND="ionice -c 3 -p \${PID}"
+
+#DISTDIR="/mnt/stone/distfiles"
+#PORTDIR_OVERLAY="/usr/local/portage"
+#PORTDIR_OVERLAY="/usr/local/xgl-coffee"
+#source /var/lib/layman/make.conf
+
+#INPUT_DEVICES="synaptics keyboard mouse evdev joystick"
+VIDEO_CARDS="fbdev vesa matrox"
+
+QEMU_SOFTMMU_TARGETS="arm i386 x86_64 mips mips64"
+QEMU_USER_TARGETS="arm i386 x86_64 mips mips64"
+
+#BINHOST="ftp://binpkg:gentoo@192.168.0.1/"
+#GENTOO_MIRRORS="http://gentoo.osuosl.org/"
+#GENTOO_MIRRORS="61.135.158.199 http://gentoo.osuosl.org/"
+GENTOO_MIRRORS="http://mirrors.sohu.com/gentoo/ http://gentoo.osuosl.org/"
+#GENTOO_MIRRORS="http://mirrors.xmu.edu.cn/gentoo http://gentoo.osuosl.org/ "
+#GENTOO_MIRRORS="216.165.129.135  61.135.158.199"
+#SYNC="rsync://61.135.158.199/gentoo-portage"
+SYNC="rsync://mirrors.xmu.edu.cn/gentoo-portage"
+DISTCC_DIR=${PORTAGE_TMPDIR}/portage/.distcc
+

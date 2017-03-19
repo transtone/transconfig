@@ -1,0 +1,6 @@
+#name : {% call %}...{% endcall %}
+#group : call
+# --
+{% call $1 %}
+$0
+{% endcall %}

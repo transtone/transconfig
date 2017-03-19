@@ -1,0 +1,134 @@
+#!/sbin/runscript
+# Copyright 1999-2006 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+#
+# /etc/init.d/squash_portage allows efficient compression of
+# Gentoo portage arborescence
+#
+# It requires support for the loop device and squashfs enabled in the kernel,
+# module autoloading is also *highly* recommended.
+# sys-fs/squashfs and sys-fs/aufs are necessary for read-write support.
+#
+# Author: Mathias Laurin <mathias_laurin@users.sourceforge.net>
+# 2006-11-28, v.0.1.5(4)
+# 2009-02-24, v.0.1.6(1) Weedy <weedy2887@gmail.com>
+# 2009-03-20, v.0.1.7(1) j0inty <j0inty@stollfuss.net>
+# 2009-07-10, v.0.1.8(1) j0inty
+# 2009-09-01. v.0.1.9(1) nall <soir@fuzzysock.net>
+
+opts="sync"
+
+source /etc/make.globals
+SQFS_CUR="$SQFS_DIRNAME/portage.sqfs"
+SQFS_NEW="$SQFS_DIRNAME/portage-current.sqfs"
+SQFS_OLD="$SQFS_DIRNAME/portage-old.sqfs"
+DEF_RW="/dev/shm/.portage-rw"
+SQFS_OPTS="-force-uid portage -force-gid portage -no-duplicates -comp xz"
+
+depend() {
+	need localmount modules
+}
+
+
+check_support() {
+	if [ -x $SQFS_DIRNAME/portages/portage ]; then
+		umount -t squashfs $SQFS_CUR
+	fi
+	if ! [ -x /usr/bin/mksquashfs ]; then
+		eerror "ERROR: sys-fs/squashfs-tools is not installed."
+		return 1
+	fi
+	if ! [ -w /dev/loop0 ]; then
+		eerror "ERROR: loopback support is not available."
+		return 1
+	fi
+	if ! [[ $(grep -s $'\taufs$' /proc/filesystems) ]]; then
+		eerror "ERROR: aufs filesystem support is not available."
+		return 1
+	fi
+	if ! [[ $(grep -s $'\tsquashfs$' /proc/filesystems) ]]; then
+		eerror "ERROR: squashfs filesystem support is not available."
+		return 1
+	fi
+	return 0
+}
+
+makeImage() {
+	mksquashfs $PORTAGE_AUFS $SQFS_NEW $SQFS_OPTS # 2>/dev/null
+	retval=$?
+	ln -sf $SQFS_NEW $SQFS_CUR
+ 	eend $retval
+}
+
+sync() {
+	ebegin "Syncing portage tree"
+	eval $SYNC_CMDS
+	stop
+	start
+	eend 0
+}
+
+start() {
+	check_support || return 1
+	if [ -f "$SQFS_CUR" ]; then
+		ebegin "SQFS-PORTAGE: Mounting read-only squashfs image"
+		mount -rt squashfs -o loop,nodev,noexec $SQFS_CUR $PORTAGE_RO
+		retval=$?
+		[ $retval -ne 0 ] && return $retval
+	else
+		if [ ! -f "/usr/portage/metadata/timestamp.chk" ]; then
+			ebegin "SQFS-PORTAGE: $PORTAGE_AUFS looks empty or corrupted, syncing"
+			eval $SYNC_CMDS
+		fi
+		einfo "  $SQFS_CUR does not exist, creating"
+		mkdir -p $SQFS_DIRNAME
+		makeImage
+		[ $? -ne 0 ] && eerror "ERROR: failed to create initial tree image"
+		start
+		eend 0
+	fi
+
+	ebegin "Mounting read-write with aufs"
+	if [ ! $PORTAGE_RW ] ; then
+		einfo "  mounted in tmpfs (RAM)"
+		PORTAGE_RW="${DEF_RW}"
+	fi
+	[ -d $PORTAGE_RW ] || mkdir -p $PORTAGE_RW
+	chmod 0750 $PORTAGE_RW
+	chown portage:portage $PORTAGE_RW
+	mount -t aufs -o nodev,noexec,br=$PORTAGE_RW=rw:$PORTAGE_RO=ro aufs $PORTAGE_AUFS
+	eend $?
+
+	if [ "$DISTDIR" == "/usr/portage/distfiles" ]; then
+		mkdir -p /usr/local/distfiles 
+		mount -o bind /usr/local/distfiles /usr/portage/distfiles
+		ewarn "DISTDIR is currently inside the portage tree. It has been bind 
+		mounted to keep the SquashFS image small."
+	fi
+}
+
+stop() {
+	ebegin "SQFS-PORTAGE: Stopping and unmounting"
+	[ ! $PORTAGE_RW ] && PORTAGE_RW="${DEF_RW}"
+	if [ $(du -s --exclude=.w* $PORTAGE_RW | cut -f 1) -gt 4 ]; then
+		einfo "  Changes detected, updating image."
+		mv -f $SQFS_NEW $SQFS_OLD
+		makeImage
+		rm -f $SQFS_OLD
+	else
+		einfo "  No changes detected, skipping update."
+		eend 0
+	fi
+
+	if [ "$DISTDIR" == "/usr/portage/distfiles" ]; then
+		einfo "  Unmounting distfiles"
+		umount /usr/local/distfiles
+	fi;
+
+	einfo "  Unmounting the tree"
+	umount -t aufs  $PORTAGE_AUFS
+	umount -t squashfs $PORTAGE_RO
+	rm -rf $PORTAGE_RW
+	eend 0
+}

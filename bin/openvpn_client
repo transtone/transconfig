@@ -1,0 +1,2 @@
+#!/bin/bash
+openvpn --config /usr/local/etc/openvpn/client.conf &

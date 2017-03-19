@@ -1,0 +1,2 @@
+#!/bin/sh
+/home/zhou/bin/runinenv /home/zhou/sites/pyenv supervisord -c /home/zhou/bin/supervisor/supervisord.conf

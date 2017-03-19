@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Icon=start-here
+Name=Menu Lancher
+Name[zh_CN]=kaishicaidan
+Comment[zh_CN]=openbox 
+Categories=FileManager;Utility;Core;GTK;
+Exec=python ~/bin/xmenud.py
+StartupNotify=true
+Terminal=false
+MimeType=inode/directory;

@@ -1,0 +1,37 @@
+# These settings were set by the catalyst build script that automatically built this stage
+# Please consult /etc/make.conf.example for a more detailed example
+CFLAGS="-O2 -march=i686 -pipe "
+CHOST="i686-pc-linux-gnu"
+CXXFLAGS="${CFLAGS}"
+MAKEOPTS="-j2"
+
+LC_ALL="C"
+LINGUAS="zh_CN"
+FEATURES="sandbox ccache userfetch parallel-fetch "
+
+USE="-qt -qt3 -kde -doc -debug -xmms -gstreamer -mozilla -arts -gnome -cups -ipv6 -gnome-print \
+gtk cairo opengl X acpi javascript unicode mmx mmxext sse sse2 xft cjk nls vim vim-syntax \ 
+mozsvg jpeg png gif svg tiff mng \
+dvdr a52 ao alsa cdda cddb cdio cdaudio mp3 mp4 aac ogg flac dts mtp wavpack dvd mpeg xvid x264 id3tag charconv \
+xml ruby vhosts nsplugin cgi fastcgi bzip2  pdf truetype apache2 \
+xcomposite xcb bash-completion dbus hal logrotate "
+
+ACCEPT_KEYWORDS="~x86"
+
+PORTAGE_ECLASS_WARNING_ENABLE="0"
+
+PORTAGE_NICENESS="15"
+PORTAGE_IONICE_COMMAND="ionice -c 3 -p \${PID}"
+
+
+INPUT_DEVICES="keyboard synaptics mouse evdev"
+VIDEO_CARDS="fbdev vesa radeon"
+
+GENTOO_MIRRORS="61.135.158.199 http://gentoo.osuosl.org/"
+#GENTOO_MIRRORS="192.168.2.100 61.135.158.199 http://gentoo.osuosl.org/"
+#BINHOST="ftp://binpkg:gentoo@192.168.0.1/"
+
+#source /usr/local/portage/layman/make.conf
+
+#DISTCC_DIR=${PORTAGE_TMPDIR}/portage/.distcc
+

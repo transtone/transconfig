@@ -1,0 +1,6 @@
+#name : if(...){...}
+#by : fancyoung
+# --
+if($1){
+    $0
+}

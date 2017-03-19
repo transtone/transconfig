@@ -1,0 +1,37 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "plugins": [
+        "standard"
+    ],
+    "extends": "eslint:recommended",
+    "rules": {
+        "no-invalid-this": 2,
+        "indent": [
+            "off",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "off",
+            "single"
+        ],
+        "quote-props": ["off", "as-needed"],
+        "semi": [
+            "off",
+            "always"
+        ],
+        "no-undef": 1,
+        "no-unused-vars": 1,
+        "comma-dangle": 1
+    }
+}

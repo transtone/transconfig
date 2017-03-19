@@ -1,0 +1,9 @@
+#name : var x = (function(){... return {...}})()
+#by : fancyoung
+# --
+var $1 = (function(){
+    $2
+    return {
+        $0
+    };
+})();

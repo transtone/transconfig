@@ -1,0 +1,2 @@
+#keychain id_dsa id_rsa
+#source ~/.keychain/$HOST-sh

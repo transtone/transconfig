@@ -1,0 +1,6 @@
+#name : {% macro %}...{% endmacro %}
+#group : macro
+# --
+{% macro $1 %}
+$0
+{% endmacro %}

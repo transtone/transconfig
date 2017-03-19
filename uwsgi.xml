@@ -1,0 +1,15 @@
+<foo>
+  <uwsgi id="stone">
+    <pythonpath>/home/zhou/sites/stone</pythonpath>
+    <pythonpath>/home/zhou/sites</pythonpath>
+    <app mountpoint="/">
+      <script>django_wsgi</script>
+    </app>
+  </uwsgi>
+
+  <uwsgi id="flask">
+    <chdir>/home/zhou/sites/flask</chdir>
+    <wsgi-file>/home/zhou/sites/flask/hello.py</wsgi-file>
+    <callable>app</callable>
+  </uwsgi>
+</foo>

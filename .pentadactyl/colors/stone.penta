@@ -1,0 +1,24 @@
+hi StatusLineNormal                 color:#002B36 !important; background: #CDD7E3 !important;  border-bottom:1px solid #C1C1C1 !important;
+hi Normal               	    color:#657B83 !important; background: white;
+hi CmdLine              	    color:#000000;
+hi CompGroup            	    color:#afafaf !important;
+hi CompTitle            	    color:#D33682;font-weight:bold; background-color:#002B36;
+hi CompItem             	    color:#268BD2; padding:0px 3px; 
+hi CompItem[selected]   	    background:#073642; color:#859900;font-weight:bold; opacity:0.9;
+hi CompItem:nth-child(2n+1)         background-color: #D9DADB;
+hi CompResult                       width:51%;overflow:hidden;
+hi CompDesc             	    color:inherit; font-family:simstone;
+hi CompMsg              	    background:#0b0e13;color:#afafaf
+hi Filter               	    color:orange; font-weight:bold; background-color:#D9DADB; border:1px solid #CFCEBE; color: #CB4B16; padding:0 2px 1px;
+hi LinkInfo 			    color:#afafaf !important;
+hi ModeMsg 			    color:white; background:none !important;
+hi InfoMsg 			    color:white; background:none !important;
+
+hi -a Hint			    text-transform: uppercase;
+hi -a Preview                       color:#000; opacity:0.5; 
+hi -a URL                           color:inherit; font-family:simstone;
+hi -a URL:hover                     color:#CB4B16;background:inherit;text-decoration:underline;
+hi -a Tag                           color:#40893f;background:inherit;font-weight:bold;
+hi -a Question                      color:inherit;background:inherit;font-weight:bold;
+hi -a Bell                          color:inherit;background-color:#af2334 !important;opacity:0.6;
+hi -a Indicator                     color:#893f44;background:inherit;width:2em;text-align:center;

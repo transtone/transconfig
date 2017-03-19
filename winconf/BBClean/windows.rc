@@ -1,0 +1,7 @@
+	[submenu](Windows)<Icons\Expose.ico>
+		[MinimizeAll](最小化所有窗口) 
+		[RestoreAll](恢复所有窗口)
+		[Cascade](层叠窗口)
+		[TileVertical](垂直平铺窗口) 
+		[TileHorizontal](水平平铺窗口)
+	[end]

@@ -1,0 +1,4 @@
+#contributor : transtone <zm3345@gmail.com>
+#name : click( ) ...
+# --
+click(function($1){$0});

@@ -1,0 +1,215 @@
+java font-zh:
+ln -sv /usr/share/fonts/droid/DroidSansFallback.ttf /usr/share/fonts/arphicfonts/bsmi00lp.ttf
+
+✔❤♺✿☆★△§◆◇□◎○※▲■• \203a
+“▪”、“•”、“●”、“·”
+#查看使用频率最高的命令
+history | awk '{CMD[$2]++;count++;} END { for (a in CMD )print CMD[a] " " CMD[a]/count*100 "% " a }' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
+
+udisks policy
+/usr/share/polkit-1/actions/org.freedesktop.udisks.policy
+
+baidu tts:
+http://tts.baidu.com/text2audio?text=123&lan=ZH&ie=UTF-8
+
+#centos6 rpm
+rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+
+http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+http://rpms.famillecollet.com/enterprise/remi-release-5.rpm
+
+下载相应的EPEL源
+
+(1).32位系统
+[root@localhost src]# wget http://mirrors.yun-idc.com/epel/5/i386/epel-release-5-4.noarch.rpm
+
+(2).64位系统
+[root@localhost ~]# http://mirrors.hust.edu.cn/epel//5/x86_64/epel-release-5-4.noarch.rpm
+
+3.安装EPEL源（注：我这里是64位系统）
+[root@localhost src]# rpm -ivh epel-release-5-4.noarch.rpm
+4.导入key文件
+[root@localhost src]# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+
+#dpkg -l 命令可以浏览所有安装的包，其中 rc 状态的包即卸载了包却保留了配置文件。如果想要完整删除所有 rc 状态的包一个一个删还是很麻烦的，所以可以使用以下命令进行清理
+dpkg -l | grep ^rc | cut -d' ' -f3 | sudo xargs dpkg --purge
+
+#deb http://security.debian.org/ wheezy/updates main contrib
+#deb-src http://security.debian.org/ wheezy/updates main contrib
+# wheezy-updates, previously known as 'volatile'
+deb http://mirrors.ustc.edu.cn/debian/ wheezy main non-free contrib
+deb http://mirrors.ustc.edu.cn/debian/ wheezy-proposed-updates main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/debian/ wheezy main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/debian/ wheezy-proposed-updates main non-free contrib
+
+#####################&#20027;&#35201;&#65292;&#24320;&#28304;&#65292;&#38381;&#28304;
+#deb http://mirrors.163.com/debian wheezy main non-free contrib
+#deb-src http://mirrors.163.com/debian wheezy main non-free contrib
+
+###################wheezy-proposed-updates&#24314;&#35758;&#26356;&#26032;
+#deb http://mirrors.163.com/debian wheezy-proposed-updates main contrib non-free
+#deb-src http://mirrors.163.com/debian wheezy-proposed-updates main contrib non-free
+
+###################wheezy-updates&#25512;&#33616;&#26356;&#26032;
+#deb http://mirrors.163.com/debian wheezy-updates main contrib non-free
+#deb-src http://mirrors.163.com/debian wheezy-updates main contrib non-free
+
+
+#################wheezy/updates&#23433;&#20840;&#26356;&#26032;
+#deb http://mirrors.163.com/debian-security wheezy/updates main contrib non-free
+#deb-src http://mirrors.163.com/debian-security wheezy/updates main contrib non-free
+
+deb http://http.us.debian.org/debian wheezy main contrib non-free
+deb http://security.debian.org wheezy/updates main contrib non-free
+deb-src http://http.us.debian.org/debian wheezy main contrib non-free
+deb-src http://security.debian.org wheezy/updates main contrib non-free
+
+
+
+如果你发觉一个目录结构下的大量文件权限（读、写、可执行）很乱时，可以执行以下两个命令批量修正：
+chmod 755 -R dir_name
+find dir_name -type f -exec chmod 644 {} \;
+
+如果你还有其它的要求，比如将sh或者py文件增加可执行权限，这个就更简单了：
+find dir_name -name “*.sh” -exec chmod 755 {} \;
+find dir_name -name “*.py” -exec chmod 755 {} \;
+
+当然，这样做过后，其它一些可执行程序也相应去掉了可执行权限，比如C的可执行程序。
+
+emacs:
+当C-s搜索时，C-y复制无效时，试试M-y (M-y runs the command isearch-yank-kill, which is an interactive compiled Lisp function in `isearch.el'. It pull string from kill ring into search string.)
+
+
+cygwin下安装 virtualenv
+依赖：openssh python-paramiko， python-crypto
+wget 下载setuptools的对应版本egg文件
+sh setuptools*.egg 安装
+现在就有easy_install可以用了。
+
+home
+java_home
+classpath .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+cygwin nodosfilewarning
+path c:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Program Files\ActivIdentity\ActivClient\;C:\Program Files (x86)\ActivIdentity\ActivClient\;c:\Program Files (x86)\PostgreSQL\9.1\bin\
+
+
+mkfs.xfs -f -i size=512 -l size=128m -d agcount=4
+    其次，是mount时候的挂载选项：
+    noatime    : 这个挂载选项，是许多文件系统都要用的。
+    logbufs=8 : 这个选项需要大内存的支持，它也能整体提高xfs的性能。
+http://www.cnblogs.com/h2appy/archive/2008/11/20/1337997.html
+
+mount -o loop,offset=$((分区Start值*512)) /mnt/vps/win03.raw /mnt/d
+
+
+arp:
+DHCP Snooping + IP Source guard + ARP-check防ARP欺骗方案：通过DHCP Snooping功能将用户正确的IP与MAC写入交换机的DHCP Snooping
+
+$ sudo -u postgres psql
+\password
+Enter password: ...
+...
+很多时候，同一个ip会有大量连接到你的服务器，这时候，我们可以通过下面一条命令即可限制单ip的连接数，非常实用，这样可以保障你的网站更好地运行。
+iptables -I INPUT -p tcp –dport 80 -m connlimit –connlimit-above 10 -j REJECT
+#允许单个IP的最大连接数为 10
+
+
+jquery
+
+
+    $('input[name=outnum]').keypress(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $('#webcall').trigger('click');
+        }
+    });
+
+
+github 绑定185.31.17.184 github.global.ssl.fastly.net
+
+
+for i in `ls`; do mv -f $i `echo $i | cut -d '_' -f 3 `; done
+
+
+golang
+#获取字符串someString里的数字
+fmt.Println(strings.Join(regexp.MustCompile(`\d+`).FindAllString(someString, -1), "" ))
+
+go get github.com/golang/tools
+
+
+nginx
+# we're in the http context here
+map $http_upgrade $connection_upgrade {
+  default upgrade;
+  ''      close;
+}
+
+# the Meteor / Node.js app server
+server {
+  server_name yourdomain.com;
+
+  access_log /etc/nginx/logs/yourapp.access;
+  error_log /etc/nginx/logs/yourapp.error error;
+
+  location / {
+    proxy_pass http://localhost:3000;
+    proxy_set_header X-Real-IP $remote_addr;  # http://wiki.nginx.org/HttpProxyModule
+    proxy_set_header Host $host;  # pass the host header - http://wiki.nginx.org/HttpProxyModule#proxy_pass
+    proxy_http_version 1.1;  # recommended with keepalive connections - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_http_version
+    # WebSocket proxying - from http://nginx.org/en/docs/http/websocket.html
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+  }
+
+}
+
+
+windows cmd, 修改cmd默认codepage
+chcp 850
+
+firefox addons
+* add bookmark here
+* add-on compatibility report
+* flashgot
+* foxyproxy
+* ghostery
+* omnibar
+* react devtools
+* sqlite manager
+* tab memory usage
+* tab mix plus
+* ublock origin
+* user agent override
+* youkuantiads with player
+* vimperator
+
+
+tomcat
+时区问题：catalina.sh JAVA_OPTS 加入：
+-Duser.timezone=GMT+08
+
+docker
+--privileged=true Give extended privileges to this container
+
+docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mysecretpassword -e MYSQL_CHARSET=utf8 -e MYSQL_DATABASE=lol mysql:5.6
+
+微信测试账号
+appID
+wx9906a0c9dd9bbeac
+appsecret
+d4624c36b6795d1d99dcf0547af5443d
+
+
+axure:
+用户名 aaa
+注册码二：2GQrt5XHYY7SBK/4b22Gm4Dh8alaR0/0k3gEN5h7FkVPIn8oG3uphlOeytIajxGU 这个可以用
+
+
+netsh interface ip set dns "WLAN" static 223.5.5.5
+
+tmux kill-window -t window-number
+
+
+honry.ddns.net windows7-10激活服务器

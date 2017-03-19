@@ -1,0 +1,4 @@
+#name : {% import %}
+#group : import
+# --
+{% import '$1' as $2 %}$0

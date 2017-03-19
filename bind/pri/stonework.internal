@@ -1,0 +1,15 @@
+$TTL 2d
+@	IN SOA	stonework.org.	root.stonework.org. (
+	2009112001	; serial
+	3h	; refresh
+	1h	; retry
+	1w	; expiry
+	1d )	; minimum
+	IN NS	ns.stonework.org.
+	IN MX	10 mail.stonework.org.
+	IN A 	192.168.1.117
+
+www	IN A	192.168.1.117
+router	IN A	192.168.1.1
+
+ftp	IN CNAME www

@@ -1,0 +1,80 @@
+# These settings were set by the catalyst build script that automatically built this stage
+# Please consult /etc/make.conf.example for a more detailed example
+
+#CC="clang"
+#CXX="clang++"
+CFLAGS="-O2 -march=i686 -pipe"
+CHOST="i686-pc-linux-gnu"
+CXXFLAGS="${CFLAGS}"
+
+#LDFLAGS="-Wl,--sort-common "
+
+MAKEOPTS="-j3"
+LC_ALL="C"
+LINGUAS="zh_CN zh"
+#LANGS="zh-CN"
+FEATURES="sandbox userfetch parallel-fetch "
+EMERGE_DEFAULT_OPTS="--autounmask-write=y --keep-going=y --with-bdeps=y "
+
+USE="-qt -qt3 qt4 qt3support gtk gtk3 -xine -gstreamer -kde -ccache -hal -doc networkmanager -debug -xmms -mozilla -arts -gnome -llvm \
+-ipv6 -cups -ghostscript -gnome-print -libburn -3dnow -3dnowext -32bit -modules  -lirc -bluetooth -pulseaudio -bonobo \
+gconf gps perl python smp cairo pango xrandr gallium opengl glitz X gtkstyle dmx acpi javascript v8 unicode \
+mmx mmxext sse sse2 sse3 ssse3 xft cjk nls i18n sslv2 vim cscope vim-syntax fpm apache2 curl openssl fastcgi udisks "
+# branding svg mozsvg gdu xpm jpeg jpeg2k png gif tiff theora lcms gphoto2 \
+# exif nsplugin cgi fastcgi bzip2 archive rar emacs spice \
+# vdpau fontconfig gpg xetex emacs23icons lua xcomposite hibernate-script pdf truetype xcb enca dvdr win32codecs a52 ffmpeg quicktime imagemagick \ 
+# xv ao nas alsa alsa-shared  cue vorbis cdda cdio cdaudio musepack wma wma-fixed mp3 mp4 mac mad aac ogg flac dts mtp wavpack devil sndfile \
+# music dvd mpeg xine xvid x264 srt  rrdtool threads shadow usb gnutls xosd id3tag charconv \ 
+# bash-completion zsh-completion dbus udev devfs-compat ctype mng xml vhosts tftp cron samba ios gbm drm gallium \
+# device-mapper libnotify notify wifi kpathsea hddtemp xinerama logrotate consolekit lzma postgres mysql mysqli -sqlite sqlite3 pdo dia \
+# hscolour vaapi html nss xattr tcmalloc nis lto lvm btrfs usbredir policykit gnome-keyring \
+# h323 sip g711 g722 g7221 gsm alaw g729 ulaw wav fbsplash v4l resolvconf wayland "
+
+
+ACCEPT_KEYWORDS="~x86"
+ACCEPT_LICENSE="*"
+
+#PORTAGE_TMPFS="/dev/shm"
+#PORTAGE_TMPDIR="/dev/shm"
+#BUILD_PREFIX="/dev/shm"
+PORTAGE_ECLASS_WARNING_ENABLE="0"
+PORTAGE_NICENESS="15"
+PORTAGE_IONICE_COMMAND="ionice -c 3 -p \${PID}"
+
+#DISTDIR="/dev/shm/.distfiles"
+#DISTDIR="/mnt/d/distfiles"
+#PORTDIR_OVERLAY="/usr/local/portage"
+#PORTDIR_OVERLAY="/home/zhou/zm-overlay"
+#source /var/lib/layman/make.conf
+
+GRUB_PLATFORMS="coreboot efi-32 efi-64 pc qemu multiboot"
+INPUT_DEVICES="synaptics keyboard mouse evdev "
+VIDEO_CARDS="intel vesa v4l"
+ALSA_CARDS="hda-intel loopback virmidi"
+
+QEMU_SOFTMMU_TARGETS="arm x86_64 i386"
+QEMU_USER_TARGETS="arm x86_64 i386"
+
+DRACUT_MODULES="bootchart gensplash lvm btrfs"
+
+PHP_TARGETS="php5-4"
+PYTHON_TARGETS="pypy2_0 python2_7"
+PYTHON_SINGLE_TARGET="python2_7"
+USE_PYTHON='2.7 2.7-pypy-2.0'
+
+RUBY_TARGETS="ruby19"
+
+ESL="php python"
+FREESWITCH_MODULES="redis vlc alsa python callcenter blacklist amr bv cdr_csv commands conference console db dialplan_directory dialplan_xml dptools enum esf event_socket expr fifo g723_1 g729 h26x hash httapi ilbc limit local_stream logfile loopback lua native_file sms sndfile sofia spandsp speex syslog tone_stream valet_parking voicemail"
+
+#XTABLES_ADDONS="cui gfw zhang"
+
+#BINHOST="ftp://binpkg:gentoo@192.168.0.1/"
+#GENTOO_MIRRORS="http://mirrors.sohu.com/gentoo/ http://gentoo.osuosl.org/"
+#GENTOO_MIRRORS="http://166.111.8.205/gentoo/ http://gentoo.osuosl.org/"
+GENTOO_MIRRORS="http://210.34.0.186/gentoo http://mirrors.xmu.edu.cn/gentoo  http://gentoo.osuosl.org/ "
+#GENTOO_MIRRORS="216.165.129.135  61.135.158.199"
+#SYNC="rsync://61.135.158.199/gentoo-portage"
+#SYNC="rsync://mirrors.xmu.edu.cn/gentoo-portage"
+DISTCC_DIR=${PORTAGE_TMPDIR}/portage/.distcc
+

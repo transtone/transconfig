@@ -1,0 +1,2 @@
+#!/bin/sh
+exe=`dmenu_path | yeganesh -- -fn Monaco-12  ${1+"$@"}` && exec $exe

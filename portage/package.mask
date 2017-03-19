@@ -1,0 +1,22 @@
+x11-libs/gtk+:1
+#virtual/jdk:1.7
+#virtual/jre:1.7
+x11-wm/enlightenment:0
+www-client/google-chrome:unstable
+www-client/google-chrome:beta
+#app-i18n/fcitx::gentoo-zh
+#dev-lang/php:5.5
+=x11-misc/parcellite-1.1.4
+#>net-misc/freeswitch-1.2.8
+sys-devel/automake:1.13
+# >app-emulation/wine-1.5.26
+=net-libs/gnutls-3.2.0
+#sys-kernel/e-sources::gentoo-zh
+=net-proxy/goagent-9999
+sys-boot/grub:2
+=app-i18n/man-pages-zh_CN-9999
+=app-emacs/python-mode-6.1.2
+app-misc/screen::gentoo-zh
+=dev-libs/libgcrypt-1.6.0
+dev-libs/gobject-introspection::elementary
+x11-libs/gtk+::elementary

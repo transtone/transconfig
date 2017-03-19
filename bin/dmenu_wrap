@@ -1,0 +1,13 @@
+#!/bin/sh
+# exe=`dmenu_run -fn Monaco-12  ${1+"$@"}` && exec $exe
+
+cachedir=${XDG_CACHE_HOME:-"$HOME/.cache"}
+if [ -d "$cachedir" ]; then
+    cache=$cachedir/dmenus
+else
+    cache=$HOME/.dmenu_cache # if no xdg dir, fall back to dotfile in ~
+fi
+prog=$(dmenu -fn Monaco-12 "$@" < "$cache")
+if [ -n "$prog" ]; then
+    env $prog &
+fi

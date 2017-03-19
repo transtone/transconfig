@@ -1,0 +1,32 @@
+	[submenu] (bblean设置) <Icons\house2.ico>
+		[stylesmenu] (风格样式) {styles} <Icons\cmd locked1.ico>
+		[config] (配置)<Icons\cmd locked1.ico>
+		[submenu] (关于)<Icons\cmd locked1.ico>
+			[aboutstyle] (风格)
+			[aboutplugins] (插件)
+			[about] (bbLean)
+		[end]
+		[submenu] (编辑) <Icons\cmd locked1.ico>
+			[path] (bblean文件夹) {BLACKBOX}
+			[separator]
+			[editstyle] (当前风格)
+			[editmenu] (menu.rc)
+			[edit] (startmenu.rc){start.rc}
+			[editblackbox] (blackbox.rc)
+			[editextensions] (extensions.rc)
+			[editplugins] (plugins.rc)
+			[nop]
+			[edit] (BBInterface.rc) {plugins\BBInterface\BBInterface.rc} <*>
+			[edit] (BBKeys.rc) {plugins\BBKeys\BBKeys.rc} <*>
+			[edit] (bbLeanSkin.rc) {plugins\bbLeanSkin\bbLeanSkin.rc} <*>
+			[edit] (bbLeanBar.rc) {plugins\bbLeanBar\bbLeanBar.rc} <*>
+		[end]
+		[submenu] (安装卸载)<Icons\cmd locked1.ico>
+			[exec] (安装) {blackbox.exe -install}
+			[exec] (卸载) {blackbox.exe -uninstall}
+		[end]
+		[exec](文档){docs\bblean.htm}<Icons\why.ico>
+		[reconfig] (重新加载配置)<Icons\cycle.ico>
+		[exec] (重启 Shell){restartbox.exe}<*>
+		[exit]  (退出 BBlean)<Icons\heart.ico>
+	[end]

@@ -1,0 +1,13 @@
+net-nds/ypserv
+net-proxy/haproxy
+net-misc/memcached
+www-servers/apache
+www-servers/nginx
+www-servers/cherokee
+www-servers/uwsgi-init-scripts
+net-ftp/vsftpd
+net-misc/unison
+net-misc/urlview
+mail-mta/exim
+net-fs/nfs-utils
+net-p2p/ncdc

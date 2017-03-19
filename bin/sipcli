@@ -1,0 +1,7 @@
+#!/bin/sh
+#pjsua --id=sip:1007@192.168.99.1 --registrar=sip:192.168.99.1:5060 --local-port=5061 --realm=* --username=1007  --password=1234  --no-tcp  --log-level=0 --color
+ pjsua --id=sip:1007@192.168.36.1 --registrar=sip:192.168.36.1:5060 --local-port=5061 --realm=* --username=1007  --password=1234  --no-tcp  --log-level=0 --color
+#pjsua --id=sip:1000@175.6.4.118 --registrar=sip:175.6.4.118:5060 --local-port=5061 --realm=* --username=1000  --password=1234  --no-tcp  --log-level=0 --color
+# pjsua --id=sip:8413@192.168.36.1 --registrar=sip:192.168.36.1:5060 --local-port=5061 --realm=* --username=8413  --password=1234  --no-tcp  --log-level=0 --color
+#pjsua --id=sip:8000@192.168.19.7 --registrar=sip:192.168.19.7:5060 --realm=* --username=8000  --password=1234  --auto-answer=200 --no-tcp  --log-level=0 --color
+#pjsua --id=sip:8510@192.168.7.253 --registrar=sip:192.168.7.253:5060 --realm=* --username=8510  --password=1234  --auto-answer=200 --no-tcp  --log-level=0 --color

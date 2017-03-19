@@ -1,0 +1,11 @@
+#name : Request.HTML (only in mootools)
+#by : fancyoung
+# --
+new Request.HTML({
+    url: '$1',
+    method: '${2:get}',
+    update: $3,
+    onSuccess: function(){
+	$0
+    }
+}).send();

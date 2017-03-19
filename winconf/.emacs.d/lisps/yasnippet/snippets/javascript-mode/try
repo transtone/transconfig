@@ -1,0 +1,8 @@
+#name : try
+#by : fancyoung
+# --
+try{
+    $0
+}catch(e){
+    $1
+}

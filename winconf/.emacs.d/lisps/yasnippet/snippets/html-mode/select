@@ -1,0 +1,6 @@
+#contributor : transtone <zm3345@gmail.com>
+#name : <select>...</select>
+# --
+<select>
+   <option>$0</option>
+</select>

@@ -1,0 +1,50 @@
+# This blank configuration will automatically use DHCP for any net.*
+# scripts in /etc/init.d.  To create a more complete configuration,
+# please review /usr/share/doc/openrc/net.example and save your configuration
+# in /etc/conf.d/net (this file :]!).
+
+
+# 使用wpa_supplicant代替wireless-tools
+#modules=( "wpa_supplicant" )
+
+# 因为wpa_supplicant还不能很好的自动侦测驱动，所以需要我们为其指定正在使用的驱动。
+#wpa_supplicant_eth0="-Diwl3945"
+
+
+config_eth0=("192.168.2.117/24")
+routes_eth0=("default via 192.168.2.254")
+
+#config_eth0=("192.168.1.117/24")
+#routes_eth0=("default via 192.168.1.1")
+
+#config_wlan0=("dhcp")
+
+tuntap_tap0=("tap") 
+tunctl_tap0="-u zhou"
+config_tap0=("192.168.100.1/24")
+
+
+#brctl_br0=( "setfd 0" "sethello 0" "stp off" )
+
+# 增加端口到网桥br0中
+#bridge_br0="eth0 eth1"
+
+# 你需要把端口配置成null，这样dhcp就不会启动了
+#config_eth0=( "null" )
+#config_eth1=( "null" )
+
+# 最后为网桥配置一个IP地址——你也可以使用DHCP
+#config_br0=( "192.168.0.1/24" )
+
+# 依赖eth0和eth1，因为它们需要额外的配置
+#depend_br0() {
+#  need net.eth0 net.eth1
+#}
+
+
+# 根据无线AP的MAC地址来覆盖相关设定
+# 这在不同地点有相同ESSID的情况下非常有用
+#config_001122334455=( "dhcp" )
+#dhcpcd_001122334455="-t 10"
+#dns_servers_001122334455=( "192.168.0.1" "192.168.0.2" )
+

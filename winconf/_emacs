@@ -1,0 +1,523 @@
+(add-to-list 'load-path "~/.emacs.d/93free")
+(add-to-list 'load-path "~/.emacs.d/93free/auto-complete")
+(add-to-list 'load-path "~/.emacs.d/lisps")
+(add-to-list 'load-path "~/.emacs.d/lisps/mumamo")
+(add-to-list 'load-path "C:/Program Files/Emacs/site-lisp")
+(add-to-list 'load-path "C:/Program Files/Emacs/emacs/lisp")
+(add-to-list 'load-path "~/.emacs.d/lisps/planner")
+(add-to-list 'load-path "~/.emacs.d/lisps/yasnippet")
+(add-to-list 'load-path "~/.emacs.d/lisps/php-mode")
+(add-to-list 'load-path "~/.emacs.d/lisps/muse")
+
+;;(load "C:/Program Files/Emacs/93free/nxhtml/autostart.el")
+(set-language-environment 'Chinese-GBK)
+;;  chinese-gbk:-*-新宋体-normal-r-*-*-14-*-*-*-*-*-iso10646-1" t)
+;;  "-*-Monaco-normal-r-*-*-12-*-*-*-*-*-fontset-win32,
+(create-fontset-from-fontset-spec
+  "-*-Consolas-normal-r-*-*-14-*-*-*-*-*-fontset-win32,
+  chinese-gbk:-*-微软雅黑-normal-r-*-*-13-*-*-*-*-*-iso10646-1" t)
+(set-default-font "fontset-win32")
+(require 'unicad)
+
+(global-set-key [(f1)] (lambda () (interactive) (manual-entry (current-word))))
+;;(global-set-key [f2] 'speedbar)             ; 快速浏览
+(global-set-key [f2] 'view-mode)            ; 只读模式
+(global-set-key [f3] 'linum-mode)           ; 显示行号
+(global-set-key [f4] 'global-highline-mode) ; 高亮光标行 
+;;(global-set-key [f5] 'revert-buffer)        ; 重载文件/刷新
+(global-set-key [f6] 'eshell)               ; 一个 elisp 写的 shell
+(global-set-key [f7] 'calendar)             ; Emacs 的日历系统
+;;(global-set-key [f10] 'hs-toggle-hiding)
+;;(global-set-key [f8] 'plan)               ; 计划任务
+(global-set-key [f9] 'other-window)         ; 跳转到 Emacs 的另一个窗口
+;;(global-set-key [f10] ')                  ; 文件菜单
+(global-set-key [f11] 'compile)             ; 在 Emacs 中编译
+(global-set-key [f12] 'gdb)                 ; 在 Emacs 中调试
+;; 这些功能键有时候还是很有用的。除了直接设置之外，还可以配合 Shift, Ctrl 设置，比如：
+;;
+;; (global-set-key [(shift f1)] 'goto-line)
+;;
+;; 实际上 Shift-F1 也可以用 F13 表示。
+
+
+
+(global-set-key "\C-x\C-b" 'electric-buffer-list)
+
+(global-set-key "\C-c\C-z" 'pop-global-mark)
+;; 很多文件的时候，在几个文件中跳转到曾经用过的 mark 地方。
+
+(global-set-key "\C-\\" 'toggle-truncate-lines)
+;; 基本不用 Emacs 的输入法，绑定给折行命令吧
+
+(global-set-key "\C-z" 'set-mark-command)
+;; C-SPC 多数时候都是操作系统的输入法切换，set-mark-command 无论如何都要设置
+;; 在一个方便的位置。而用来挂起 Emacs 的命令可以用 C-x C-z，也很方便。
+
+(setq frame-title-format '("" buffer-file-name "@" user-login-name ":" system-name))
+;;设置缓冲标题
+
+(define-prefix-command 'ctl-x-m-map)
+(global-set-key "\C-xm" 'ctl-x-m-map)
+;; 定义了一个新的前缀，并且绑定到 C-x m，后面给这个前缀绑定一些键。而原来的
+;; mail 对我基本没用处，或许都是因为 gnus :)。
+
+(define-key ctl-x-m-map "w" 'ibuffer)
+;; 管理 Emacs 所打开的 buffer。
+
+(setq inhibit-startup-message t)
+;; 不显示 Emacs 的开始画面。
+
+(setq default-major-mode 'text-mode)
+;; 任意的打开一个新文件时，缺省使用 text-mode。
+
+(setq require-final-newline t)
+;; 存盘的时候，要求最后一个字符时换行符。
+
+(setq resize-mini-windows nil)
+;; mini buffer 的大小保持不变。
+
+;;(mouse-avoidance-mode 'animate)                
+;; 鼠标指针避开光标
+;; 用鼠标快速 copy ,cut , paste
+(require 'mouse-copy)
+(global-set-key [S-down-mouse-1] 'mouse-drag-secondary-pasting)
+(global-set-key [M-S-down-mouse-1] 'mouse-drag-secondary-moving)
+
+(setq track-eol t)
+;; 当光标在行尾上下移动的时候，始终保持在行尾。
+
+(setq Man-notify-method 'pushy)
+;; 当浏览 man page 时，直接跳转到 man buffer。
+
+(setq uniquify-buffer-name-style 'forward)
+;; 当有两个文件名相同的缓冲时，使用前缀的目录名做 buffer 名字，不用原来的
+
+(setq line-number-display-limit 1000000)
+;; 当行数超过一定数值，不再显示行号。
+
+(setq kill-ring-max 200)
+;; kill-ring 最多的记录个数。
+
+(setq ring-bell-function 'ignore)
+;; 彻底的消除 ring-bell 的效果。
+
+(setq apropos-do-all nil)
+;; M-x apropos 时多查询些结果，但需要更多的 CPU。
+
+(setq dired-recursive-copies t)
+(setq dired-recursive-deletes t)
+;; 复制(删除)目录的时，第归的复制(删除)其中的子目录。
+
+;;###复制一行绑定
+(global-set-key (kbd "M-w") 'huangq-save-line-dwim)
+;;###autoload
+(defun huangq-save-one-line (&optional arg)
+  "save one line. If ARG, save one line from first non-white."
+  (interactive "P")
+  (save-excursion
+    (if arg
+        (progn
+          (back-to-indentation)
+          (kill-ring-save (point) (line-end-position)))
+      (kill-ring-save (line-beginning-position) (line-end-position)))))
+;;;###autoload
+(defun huangq-kill-ring-save (&optional n)
+  "If region is active, copy region. Otherwise, copy line."
+  (interactive "p")
+  (if (and mark-active transient-mark-mode)
+      (kill-ring-save (region-beginning) (region-end))
+    (if (> n 0)
+        (kill-ring-save (line-beginning-position) (line-end-position n))
+      (kill-ring-save (line-beginning-position n) (line-end-position)))))
+;;;###autoload
+(defun huangq-save-line-dwim (&optional arg)
+  "If region is active, copy region.
+If ARG is nil, copy line from first non-white.
+If ARG is numeric, copy ARG lines.
+If ARG is non-numeric, copy line from beginning of the current line."
+  (interactive "P")
+  (if (and mark-active transient-mark-mode)
+      ;; mark-active, save region
+      (kill-ring-save (region-beginning) (region-end))
+    (if arg
+        (if (numberp arg)
+            ;; numeric arg, save ARG lines
+            (huangq-kill-ring-save arg)
+          ;; other ARG, save current line
+          (huangq-save-one-line))
+      ;; no ARG, save current line from first non-white
+      (huangq-save-one-line t))))
+;;==============================================
+
+(setq display-time-24hr-format t)
+(setq display-time-day-and-date t)
+(setq display-time-use-mail-icon t)
+(setq display-time-interval 10)
+;; 在 mode-line 上显示时间。
+
+(setq user-full-name "your_name")
+(setq user-mail-address "your_email")
+;; 缺省的名字和邮件地址，很多地方用得到，比如 VC(version control) 中产生
+;; ChangeLog 文件。
+
+(setq time-stamp-active t)
+(setq time-stamp-warn-inactive t)
+(setq time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S chunyu")
+;; 设置时间戳，标识出最后一次保存文件的时间。
+
+(setq version-control t)
+(setq kept-old-versions 2)
+(setq kept-new-versions 5)
+(setq delete-old-versions t)
+(setq backup-directory-alist '(("." . "~/var/tmp")))
+(setq backup-by-copying t)
+;; Emacs 中，改变文件时，默认都会产生备份文件(以 ~ 结尾的文件)。可以完全去掉
+;; (并不可取)，也可以制定备份的方式。这里采用的是，把所有的文件备份都放在一
+;; 个固定的地方("~/var/tmp")。对于每个备份文件，保留最原始的两个版本和最新的
+;; 五个版本。并且备份的时候，备份文件是复本，而不是原件。
+
+(setq font-lock-maximum-decoration t)
+(setq font-lock-global-modes '(not shell-mode text-mode))
+(setq font-lock-verbose t)
+(setq font-lock-maximum-size '((t . 1048576) (vm-mode . 5250000)))
+;; 语法高亮。除 shell-mode 和 text-mode 之外的模式中使用语法高亮。
+
+
+(setq-default kill-whole-line t)
+;; 在行首 C-k 时，同时删除该行。
+
+(fset 'yes-or-no-p 'y-or-n-p)
+;; 改变 Emacs 固执的要你回答 yes 的行为。按 y 或空格键表示 yes，n 表示 no。
+
+(global-font-lock-mode 1)               ; 开启语法高亮。
+(auto-compression-mode 1)               ; 打开压缩文件时自动解压缩。
+(column-number-mode 1)                  ; 显示列号。
+(blink-cursor-mode -1)                  ; 光标不要闪烁。
+(display-time-mode 1)                   ; 显示时间。
+(show-paren-mode 1)                     ; 高亮显示匹配的括号。
+;;(menu-bar-mode -1)                      ; 不要 menu-bar。
+(icomplete-mode 1)            ; 给出用 M-x foo-bar-COMMAND 输入命令的提示。
+(global-linum-mode 1)                   ; 开启行号。
+
+(tool-bar-mode -1)
+;; 不要 tool-bar 和 scroll-bar。
+
+;;(autoload 'css-mode "css-mode" "CSS editing mode" t)
+;;【css-mode.el】编辑 css 文件。
+
+;;加载php-mode
+(require 'php-mode)
+;;(autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
+(setq auto-mode-alist (cons '("\\.asp$" . html-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.phtml$" . html-mode) auto-mode-alist))
+;;(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . javascript-mode))
+
+;;; cperl-mode is preferred to perl-mode                                        
+;;; "Brevity is the soul of wit" <foo at acm.org> 
+(mapc
+  (lambda (pair)
+    (if (eq (cdr pair) 'perl-mode)
+        (setcdr pair 'cperl-mode)))
+  (append auto-mode-alist interpreter-mode-alist))
+
+(require 'mumamo-fun)
+(setq auto-mode-alist
+   (append '(("\\.py\\'" . python-mode)
+      ("\\.css\\'" . css-mode)
+      ("\\.php\\'" . mumamo-alias-html-mumamo-mode)
+      ("\\.html\\'" . mumamo-alias-html-mumamo-mode))
+      auto-mode-alist))
+;; 将文件模式和文件后缀关联起来。
+
+
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+(autoload 'py-shell "python-mode" "Python shell" t)
+;;【python-mode.el】www.python.org 上面的 python-mode
+
+(autoload 'xahk-mode "xahk-mode" "Load xahk-mode for editing AutoHotKey scripts." t)
+(add-to-list 'auto-mode-alist '("\\.ahk\\'" . xahk-mode))
+(defalias 'ahk-mode 'xahk-mode)
+;; autohotkey-mode
+
+(autoload 'run-scheme "quack" "Quack scheme editing mode" t)
+(autoload 'scheme-mode "quack" "Quack scheme editing mode" t)
+;;【quack.el】scheme 模式和交互模式。
+
+(autoload 'htmlize-buffer "htmlize" "HTMLize mode" t)
+;;【htmlize.el】把 buffer 中的内容连同颜色转为 html 格式。
+
+(autoload 'browse-kill-ring "browse-kill-ring" "Browse kill ring" t)
+;;【browse-kill-ring.el】查看 kill-ring，都曾经 kill 过哪些文本。
+
+(autoload 'folding-mode          "folding" "Folding mode" t)
+(autoload 'turn-off-folding-mode "folding" "Folding mode" t)
+(autoload 'turn-on-folding-mode  "folding" "Folding mode" t)
+;;【folding.el】编辑文本的一部分，将其他部分折叠起来。
+
+(global-set-key "%" 'match-paren)
+(defun match-paren (arg)
+  "Go to the matching paren if on a paren; otherwise insert %."
+  (interactive "p")
+  (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
+	((looking-at "\\s\)") (forward-char 1) (backward-list 1))
+	(t (self-insert-command (or arg 1)))))
+;;当 % 在括号上按下时，那么匹配括号，否则输入一个 %。
+
+(require 'planner-autoloads)
+(require 'muse-autoloads)
+
+(add-to-list 'same-window-regexps "^\\*ssh-.*\\*\\(\\|<[0-9]+>\\)")
+(autoload 'ssh "ssh" "Open a network login connection via `ssh'" t)
+
+
+;; tabbar设置
+(require 'tabbar)
+(require 'tabbar-extension) 
+(global-set-key (kbd "<S-up>") 'tabbar-backward-group)
+(global-set-key (kbd "<S-down>") 'tabbar-forward-group)
+(global-set-key (kbd "M-n") 'tabbar-backward)
+(global-set-key (kbd "M-p") 'tabbar-forward)
+(global-set-key (kbd "<S-left>") 'tabbar-backward)
+(global-set-key (kbd "<S-right>") 'tabbar-forward)     ; 用 Shift+方向键 切换tab
+;;(setq tabbar-buffer-groups-function
+;;(lambda ()
+;;(list "All Buffers")))
+
+(setq tabbar-buffer-list-function
+    (lambda ()
+        (remove-if
+          (lambda(buffer)
+             (find (aref (buffer-name buffer) 0) " *"))
+          (buffer-list))))
+
+(defun tabbar-buffer-groups ()
+  "Return the list of group names the current buffer belongs to.
+Return a list of one element based on major mode."
+  (list
+   (cond
+    ((or (get-buffer-process (current-buffer))
+         ;; Check if the major mode derives from `comint-mode' or
+         ;; `compilation-mode'.
+         (tabbar-buffer-mode-derived-p
+          major-mode '(comint-mode compilation-mode)))
+     "Process"
+     )
+    ((member (buffer-name)
+             '("*scratch*" "*Messages*"))
+     "Common"
+     )
+    ((eq major-mode 'dired-mode)
+     "Dired"
+     )
+    ((memq major-mode 
+	   '(html-mode php-mode nxml-mode sgml-mode css-mode javascript-mode js-mode js2-mode))
+     "Webcodes"
+     )
+    ((memq major-mode
+           '(help-mode apropos-mode Info-mode Man-mode))
+     "Help"
+     )
+    ((memq major-mode
+           '(rmail-mode
+             rmail-edit-mode vm-summary-mode vm-mode mail-mode
+             mh-letter-mode mh-show-mode mh-folder-mode
+             gnus-summary-mode message-mode gnus-group-mode
+             gnus-article-mode score-mode gnus-browse-killed-mode))
+     "Mail"
+     )
+    (t
+     ;; Return `mode-name' if not blank, `major-mode' otherwise.
+     (if (and (stringp mode-name)
+              ;; Take care of preserving the match-data because this
+              ;; function is called when updating the header line.
+              (save-match-data (string-match "[^ ]" mode-name)))
+         mode-name
+       (symbol-name major-mode))
+     ))))
+
+(tabbar-mode 1)
+
+;;;; 设置tabbar外观
+;; 设置默认主题: 字体, 背景和前景颜色，大小
+(set-face-attribute 'tabbar-default nil
+;;                    :family "Vera Sans YuanTi Mono"
+                    :background "gray80"
+                    :foreground "gray30"
+                    :height 0.7
+                    )
+;; 设置左边按钮外观：外框框边大小和颜色
+(set-face-attribute 'tabbar-button nil
+                    :inherit 'tabbar-default
+                    :box '(:line-width 1 :color "gray30")
+                    )
+;; 设置当前tab外观：颜色，字体，外框大小和颜色
+(set-face-attribute 'tabbar-selected nil
+                    :inherit 'tabbar-default
+                    :foreground "DarkGreen"
+                    :background "LightGoldenrod"
+                    :box '(:line-width 2 :color "DarkGoldenrod")
+                    ;; :overline "black"
+                    ;; :underline "black"
+                    :weight 'bold
+                    )
+;; 设置非当前tab外观：外框大小和颜色
+(set-face-attribute 'tabbar-unselected nil
+                    :inherit 'tabbar-default
+                    :box '(:line-width 2 :color "gray70")
+                    )
+;; tabbar end here
+
+(require 'highlight-tail)
+(setq highlight-tail-colors
+		'(("#c1e156" . 0)
+		  ("#b8ff07" . 25)
+		  ("#00c377" . 60)))
+(highlight-tail-mode)
+
+
+;; The following lines are always needed. Choose your own keys.
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+			  
+
+(require 'color-theme)
+(color-theme-initialize)
+;;(color-theme-sitaramv-nt)
+(color-theme-tango-light)
+
+(require 'todo-mode)
+(require 'weekly-view)
+(require 'cal-china-x)
+(add-hook 'diary-display-hook 'fancy-diary-display-week-graph)
+(load-library "cal-desk-calendar")
+(add-hook 'diary-display-hook 'sort-diary-entries)
+(add-hook 'diary-display-hook 'fancy-schedule-display-desk-calendar t)
+
+(require 'redo)
+;; 设置Redo的键绑定
+(global-set-key ( kbd "C-.") 'redo)
+
+;;(require 'tex-site)
+;;(require 'compile)
+
+;;设置gnuserv,让emacs只打开一个实例
+;;(require 'gnuserv)
+;;(gnuserv-start)
+;;(setq gnuserv-frame (selected-frame)) ;在当前frame打开
+;;(setenv "GNUSERV_SHOW_EMACS" "1") ;打开后让emacs跳到前面来
+
+
+(require 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+(require 'browse-kill-ring)
+(global-set-key [(control c)(k)] 'browse-kill-ring)
+(browse-kill-ring-default-keybindings)
+;;方便的在 kill-ring 里寻找需要的东西。
+
+(require 'ido)
+(ido-mode t)
+
+
+
+;; 自动补全 "hippie-expand"
+(global-set-key "\M-/" 'hippie-expand)
+(setq hippie-expand-try-functions-list 
+   '(try-expand-dabbrev
+     try-expand-dabbrev-visible
+     try-expand-dabbrev-all-buffers
+     try-expand-dabbrev-from-kill
+     try-complete-file-name-partially
+     try-complete-file-name
+     try-expand-all-abbrevs
+     try-expand-list
+     try-expand-line
+     try-complete-lisp-symbol-partially
+     try-complete-lisp-symbol))
+;; hippie-expand 的补全方式。它是一个优先列表， hippie-expand 会优先使用表最前面的函数来补全。
+
+;; 这个函数是一个 vi 的 "f" 命令的替代品。
+(defun wy-go-to-char (n char)
+  "Move forward to Nth occurence of CHAR.
+Typing `wy-go-to-char-key' again will move forwad to the next Nth
+occurence of CHAR."
+  (interactive "p\ncGo to char: ")
+  (search-forward (string char) nil nil n)
+  (while (char-equal (read-char)
+		     char)
+    (search-forward (string char) nil nil n))
+  (setq unread-command-events (list last-input-event)))
+
+(define-key global-map (kbd "C-c a") 'wy-go-to-char)
+;; 有了这段代码之后，当你按 C-c a x (x 是任意一个字符) 时，光标就会到下一个 x 处。
+;; 再次按 x，光标就到下一个 x。比如 C-c a w w w w ..., C-c a b b b b b b ...
+
+;; 这两个函数可以分别把一个区域和匹配某个regexp的行都藏起来，就跟不存在一样
+;; hide region
+(require 'hide-region)
+(global-set-key (kbd "C-c r") 'hide-region-hide)
+(global-set-key (kbd "C-c R") 'hide-region-unhide)
+;; hide lines
+(require 'hide-lines)
+(global-set-key (kbd "C-c l") 'hide-lines)
+(global-set-key (kbd "C-c L") 'show-all-invisible)
+;; hide-lines 在操作某些行的时候用起来特别方便。加一个前缀参数可以把不匹配的行都藏起来，只看到匹配的！
+
+;; yasnippet
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/lisps/yasnippet/snippets")
+(require 'dropdown-list)
+(setq yas/prompt-functions '(yas/dropdown-prompt
+                             yas/ido-prompt
+                             yas/completing-prompt))
+
+;; 为 view-mode 加入 vim 的按键。
+(setq view-mode-hook
+      (lambda ()
+        (define-key view-mode-map "h" 'backward-char)
+        (define-key view-mode-map "l" 'forward-char)
+        (define-key view-mode-map "j" 'next-line)
+        (define-key view-mode-map "k" 'previous-line)))
+
+(define-key global-map "\e\e" 'vi-mode) ;quick switch into vi-mode
+
+(require 'auto-complete)
+(require 'auto-complete-config)
+;;(require 'ac-anything)
+
+;; dirty fix for having AC everywhere
+(define-globalized-minor-mode real-global-auto-complete-mode
+  auto-complete-mode (lambda ()
+                       (if (not (minibufferp (current-buffer)))
+                         (auto-complete-mode 1))
+                       ))
+(real-global-auto-complete-mode t)
+;;(define-key ac-complete-mode-map "\t" 'ac-expand)
+;;(define-key ac-complete-mode-map "\r" 'ac-complete)
+(define-key ac-complete-mode-map "\M-n" 'ac-next)
+(define-key ac-complete-mode-map "\M-p" 'ac-previous)
+
+(set-default 'ac-sources
+             '(ac-source-semantic
+               ac-source-yasnippet
+               ac-source-abbrev
+               ac-source-words-in-buffer
+               ac-source-words-in-all-buffer
+               ac-source-imenu
+               ac-source-files-in-current-dir
+               ac-source-filename))
+
+
+(require 'server)
+(when (and (= emacs-major-version 23) (equal window-system 'w32))
+  (defun server-ensure-safe-dir (dir) "Noop" t)) ; Suppress error "directory
+                                                 ; ~/.emacs.d/server is unsafe"
+                                                 ; on windows.
+(server-start)
+
+(custom-set-faces
+ '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) nil)))
+)

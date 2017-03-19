@@ -1,0 +1,13 @@
+[begin] (QuickLine)<Icons\cmd locked.ico>
+[nop] (Art Work)
+  [insertpath] {"C:\soft\home\soft-link"}
+[sep]
+[nop] (Office Work)
+  [insertpath] {"C:\soft\home\office-link"}
+[sep]
+[nop] (Internet Tools)
+  [insertpath] {"C:\soft\home\www-link"}
+[sep]
+[nop] (Media Players)
+  [insertpath] {"C:\soft\home\player-link"}
+[end]

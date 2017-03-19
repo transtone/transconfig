@@ -1,0 +1,3 @@
+#name : <link rel="icon" ... />
+# --
+<link rel="shortcut icon" href="${/static/favicon.ico}" />$0

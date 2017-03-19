@@ -1,0 +1,74 @@
+# ------------------------------
+# bbkeys.rc - bblean 1.16
+
+# Invoke menu:
+#KeyToGrab(LWIN),        WithModifier(),         WithAction(ExecCommand), DoThis(@BBCore.ShowMenu)
+#KeyToGrab(RWIN),        WithModifier(),         WithAction(ExecCommand), DoThis(@BBCore.ShowMenu 11 23 start.rc)
+KeyToGrab(M),           WithModifier(Win),       WithAction(ExecCommand), DoThis(@BBCore.ShowMenu 11 23 start.rc)
+
+# previously, alternativ:
+KeyToGrab(M),           WithModifier(Win+Ctrl), WithAction(ExecCommand), DoThis(@BBCore.ShowMenu root)
+KeyToGrab(M),           WithModifier(Win+Shift),WithAction(ExecCommand), DoThis(@BBCore.ShowMenu workspaces)
+
+# Workspaces:
+KeyToGrab(Num1),        WithModifier(Win),      WithAction(Workspace1)
+KeyToGrab(Num2),        WithModifier(Win),      WithAction(Workspace2)
+KeyToGrab(Num3),        WithModifier(Win),      WithAction(Workspace3)
+KeyToGrab(Num4),        WithModifier(Win),      WithAction(Workspace4)
+KeyToGrab(Num5),        WithModifier(Win),      WithAction(Workspace5)
+KeyToGrab(Num6),        WithModifier(Win),      WithAction(Workspace6)
+KeyToGrab(Left),        WithModifier(Win),      WithAction(PrevWorkspace)
+KeyToGrab(Right),       WithModifier(Win),      WithAction(NextWorkspace)
+KeyToGrab(Left),        WithModifier(Win+Ctrl), WithAction(PrevWindow)
+KeyToGrab(Right),       WithModifier(Win+Ctrl), WithAction(NextWindow)
+KeyToGrab(Up),          WithModifier(Win+Ctrl), WithAction(PrevWindowAllWorkspaces)
+KeyToGrab(Down),        WithModifier(Win+Ctrl), WithAction(NextWindowAllWorkspaces)
+KeyToGrab(Up),          WithModifier(Win),      WithAction(MoveWindowLeft)
+KeyToGrab(Down),        WithModifier(Win),      WithAction(MoveWindowRight)
+KeyToGrab(G),           WithModifier(Win),      WithAction(GatherWindows)
+
+# Windows:
+#KeyToGrab(X),           WithModifier(Win),      WithAction(MaximizeWindow)
+#KeyToGrab(V),           WithModifier(Win),      WithAction(MaximizeVertical)
+#KeyToGrab(H),           WithModifier(Win),      WithAction(MaximizeHorizontal)
+#KeyToGrab(J),           WithModifier(Win),      WithAction(RestoreWindow)
+#KeyToGrab(N),           WithModifier(Win),      WithAction(MinimizeWindow)
+KeyToGrab(PageUp),      WithModifier(Win),      WithAction(RaiseWindow)
+KeyToGrab(PageDown),    WithModifier(Win),      WithAction(LowerWindow)
+KeyToGrab(End),         WithModifier(Win),      WithAction(ShadeWindow)
+KeyToGrab(Insert),      WithModifier(Win),      WithAction(StickWindow)
+KeyToGrab(Delete),      WithModifier(Win),      WithAction(CloseWindow)
+
+# Blackbox
+#KeyToGrab(R),           WithModifier(Win+Ctrl), WithAction(Reconfigure)
+#KeyToGrab(R),           WithModifier(Win+Alt),  WithAction(Restart)
+#KeyToGrab(Q),           WithModifier(Win),      WithAction(Quit)
+#KeyToGrab(M),           WithModifier(Win),      WithAction(EditMenu)
+#KeyToGrab(N),           WithModifier(Win),      WithAction(ExecCommand),DoThis(@broambox.focus)
+#KeyToGrab(P),           WithModifier(Win),      WithAction(EditPlugins)
+#KeyToGrab(S),           WithModifier(Win),      WithAction(EditStyle)
+#KeyToGrab(S),           WithModifier(Win+Ctrl), WithAction(AboutStyle)
+#KeyToGrab(P),           WithModifier(Win+Ctrl), WithAction(TogglePlugins)
+#KeyToGrab(T),           WithModifier(Win),      WithAction(ToggleTray)
+
+# System
+KeyToGrab(F11),         WithModifier(Win),      WithAction(ExecCommand),DoThis("D:\Program Files\iShut\iShut.exe" -r)
+KeyToGrab(F10),         WithModifier(Win),      WithAction(ExecCommand),DoThis("D:\Program Files\iShut\iShut.exe" -l)
+KeyToGrab(F12),         WithModifier(Win),      WithAction(ExecCommand),DoThis("D:\Program Files\iShut\iShut.exe" -s)
+#KeyToGrab(F11),         WithModifier(Win),      WithAction(Reboot)
+#KeyToGrab(F10),         WithModifier(Win),      WithAction(Logoff)
+#KeyToGrab(Spacebar),    WithModifier(Win),      WithAction(LockWorkstation)
+#KeyToGrab(F12),         WithModifier(Win),      WithAction(Shutdown)
+KeyToGrab(F12),         WithModifier(Win+Alt),  WithAction(Suspend)
+KeyToGrab(F12),         WithModifier(Win+Ctrl), WithAction(Hibernate)
+KeyToGrab(L),    WithModifier(Win),      WithAction(LockWorkstation)
+KeyToGrab(R),           WithModifier(Win),      WithAction(Run)
+
+# Extern commands:
+KeyToGrab(E),           WithModifier(Win),      WithAction(ExecCommand), DoThis(::{20D04FE0-3AEA-1069-A2D8-08002B30309D})
+KeyToGrab(Pause),       WithModifier(Win),      WithAction(ExecCommand), DoThis(control.exe sysdm.cpl)
+KeyToGrab(D),           WithModifier(Win),      WithAction(ExecCommand), DoThis(control.exe desk.cpl)
+KeyToGrab(Home),        WithModifier(Win),      WithAction(ExecCommand), DoThis(docs\bblean.htm)
+
+# BroadcastMessage example (toggles bbLeanSkin)
+! KeyToGrab(L), WithModifier(Win), WithAction(ExecCommand), DoThis(@BBCfg.plugin.load bbLeanSkin)

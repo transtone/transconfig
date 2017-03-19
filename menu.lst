@@ -1,0 +1,31 @@
+# This is a sample grub.conf for use with Genkernel, per the Gentoo handbook
+# http://www.gentoo.org/doc/en/handbook/handbook-x86.xml?part=1&chap=10#doc_chap2
+# If you are not using Genkernel and you need help creating this file, you
+# should consult the handbook. Alternatively, consult the grub.conf.sample that
+# is included with the Grub documentation.
+
+default 0
+timeout 10
+
+gfxmenu /boot/gfx-themes/message.livecd-2006-silent
+#splashimage=(hd0,0)/boot/grub/splash.xpm.gz
+
+#title Gentoo Linux 2.6.24-r5
+#root (hd0,0)
+#kernel /boot/kernel-genkernel-x86-2.6.24-gentoo-r5 root=/dev/ram0 real_root=/dev/sda3
+#initrd /boot/initramfs-genkernel-x86-2.6.24-gentoo-r5
+
+
+title funtoo Linux
+root (hd0,5)
+kernel /boot/kernel-2.6.30-r4-1 video=uvesafb:1440x900-32,mtrr:3,ywrap splash=silent,theme:emerge-world console=tty1 root=/dev/sda5 ro quiet fastboot
+
+title system rescue cd
+root (hd0,0)
+kernel /sysrcd/rescuecd subdir=sysrcd
+initrd /sysrcd/initram.igz
+
+title windows
+root (hd0,0)
+makeactive
+chainloader +1

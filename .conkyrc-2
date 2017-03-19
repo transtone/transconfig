@@ -1,0 +1,9 @@
+background no
+update_interval 3.0
+total_run_times 0
+use_spacer no
+gap_y -10
+
+TEXT
+ ^fg(\#F6F1DB)^fn(Clockopia-8:bold)^i(/home/zhou/.xmonad/dzen/cpu.xbm) ^fg(\#d3d7cf)$cpu^fn(Zekton-8:bold)^fg(skyblue)%  ^fg(\#F6F1DB)^i(/home/zhou/.xmonad/dzen/mem.xbm) ^fg(\#d3d7cf)^fn(Clockopia-8:bold)$memperc^fn(Zekton-8:bold)^fg(skyblue)% ^fg(\#F6F1DB)^i(/home/zhou/.xmonad/dzen/temp.xbm)^fg(\#d3d7cf)^fn(Clockopia-8:bold)${acpitemp}^fn(Zekton-8:bold)  ^fg(\#F6F1DB)^i(/home/zhou/.xmonad/dzen/power-ac.xbm)^fg(\#d3d7cf)^fn(Clockopia-8:bold)${battery_time C23B}^fn(Zekton-8:bold)^fg(\#4e9a06)(^fg(\#d3d7cf)^fn(Clockopia-8:bold)${battery_percent C23B}^fn(Zekton-8:bold)^fg(skyblue)%^fg(\#4e9a06))  ^fg(\#F6F1DB)^i(/home/zhou/.xmonad/dzen/net-wifi.xbm)^fg(skyblue)${wireless_essid wlan0} ^fg(\#4e9a06)(^fg(\#d3d7cf)^fn(Clockopia-8:bold)${wireless_link_qual_perc wlan0}^fn(Zekton-8:bold)^fg(skyblue)%^fg(\#4e9a06))      ^fg(white)^fn(方正剪纸繁体-8)${time %b%d日 星期%a }
+

@@ -1,0 +1,42 @@
+# These settings were set by the catalyst build script that automatically built this stage
+# Please consult /etc/make.conf.example for a more detailed example
+CFLAGS="-O2 -march=i686 -pipe"
+CHOST="i686-pc-linux-gnu"
+CXXFLAGS="${CFLAGS}"
+MAKEOPTS="-j3"
+LC_ALL="C"
+LINGUAS="zh_CN"
+FEATURES="sandbox userfetch parallel-fetch "
+
+USE="-qt -qt3 -kde -doc -debug -xmms -gstreamer -mozilla -arts -gnome -cups -ipv6 -gnome-print -libburn -3dnow -3dnowext -32bit \
+qt4 qt3support gtk cairo opengl glitz X acpi javascript unicode mmx mmxext sse sse2 ssse3 xft cjk nls  \
+vim cscope vim-syntax php curl fastcgi mozsvg xpm jpeg png gif svg tiff nsplugin cgi xulrunner fastcgi bzip2 \
+xetex emacs emacs23icons lua xcomposite hibernate-script pdf truetype xcb dvdr win32codecs a52 \ 
+ao alsa cdda cddb cdio cdaudio mp3 mp4 aac ogg flac dts mtp wavpack dvd mpeg xvid x264 sdl srt \
+usb gnutls xosd id3tag charconv bash-completion zsh-completion dbus hal ctype mng xml ldap vhosts \
+cleartype -ubuntu hddtemp xinerama savedconfig logrotate fbcon consolekit lzma "
+
+ACCEPT_KEYWORDS="~x86"
+
+PORTAGE_ECLASS_WARNING_ENABLE="0"
+
+
+PORTAGE_NICENESS="15"
+PORTAGE_IONICE_COMMAND="ionice -c 3 -p \${PID}"
+
+#PORTDIR_OVERLAY="/usr/local/portage"
+#PORTDIR_OVERLAY="/usr/local/xgl-coffee"
+source /usr/local/portage/layman/make.conf
+
+INPUT_DEVICES="synaptics keyboard mouse evdev"
+VIDEO_CARDS="fbdev vesa nv intel sis radeon radeonhd"
+
+#BINHOST="ftp://binpkg:gentoo@192.168.0.1/"
+#GENTOO_MIRRORS="http://gentoo.osuosl.org/"
+GENTOO_MIRRORS="192.168.1.117 61.135.158.199 http://gentoo.osuosl.org/"
+#GENTOO_MIRRORS="61.135.158.199 http://gentoo.osuosl.org/"
+#GENTOO_MIRRORS="216.165.129.135  61.135.158.199"
+#SYNC="rsync://61.135.158.199/gentoo-portage"
+DISTCC_DIR=${PORTAGE_TMPDIR}/portage/.distcc
+
+DISTDIR="/mnt/distfiles"

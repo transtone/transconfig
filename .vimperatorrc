@@ -1,0 +1,30 @@
+"set editor=emacsclient -f
+
+"set nextpattern=\s*下一页|下一张|下一个|下一章|下一篇|下一頁|下页|后页\s*,^\bnext\b,\bnext\b,\bsuivant\b,^>$,^(>>|››|»)$,^(>|»),(>|»)$,\bmore\b
+"set previouspattern=\s*上一页|上一张|上一个|上一篇|上一章|上一頁|上页|前页\s*,^\bprev|previous\b,\bprev|previous\b,\bprécédent\b,^<$,^(<<|‹‹|«)$,^(<|«),(<|«)$
+
+set hintchars="asdfg;lkjh"
+
+:noremap l gt
+:noremap h gT
+:noremap <A-p> gt
+:noremap <A-n> gT
+:noremap j 2j
+:noremap k 2k
+
+"键盘映射
+"map <S-Up> :set go=bcrm<CR>
+"map <S-Down> :set go=bncrmT<CR>
+"map <S-Left> :set go=bcrT<CR>
+"map <S-Right> :set go=bcr<CR>
+
+:noremap <A-w> Y
+":noremap <C-a> <C-a>
+:cnoremap <A-w> <C-c>
+:cnoremap <C-y> <C-v>
+:cnoremap <C-w> <C-x>
+:inoremap <C-a> <C-a>
+:inoremap <A-w> <C-c>
+:inoremap <C-y> <C-v>
+
+"noremap <C-x> c

@@ -1,0 +1,34 @@
+# bsetroot.rc
+
+# In this file, you may specify some wildcard patterns, which
+# are then used by bsetroot to find the images, without that
+# you would have to change your downloaded styles.
+
+# Each line in this file is a 'pattern=replacestring' pair,
+# that is applied to the image path as specified in the style,
+# until the image is found or the end of this file is reached.
+
+# letter case is ignored, supported wildcards are ? and *
+
+# examples:
+
+# ~/.fluxbox/=c:/blackbox/
+# - this maps a 'fluxbox' *nix directory to c:/blackbox
+
+
+# /home/m3gboy/.blackbox/backgrounds/=backgrounds/m3gboy/
+# - this tells bsetroot, that it can find images for m3gboy's
+#   styles in backgrounds/m3gboy/
+
+
+# *backgrounds/=wallpapers/
+# - this tells bsetroot, that it can find images in the
+#   wallpapers folder rather than in the backgrounds folder.
+
+
+# some stuff, that I am actually using.....
+
+*/.blackbox/=
+*/.fluxbox/backgrounds=backgrounds/fluxbox
+*blackbox=./
+=backgrounds/

@@ -1,0 +1,6 @@
+#name : {% trans %}...{% endtrans %}
+#group : filter
+# --
+{% trans $1 %}
+${{% pluralize %}}$0
+{% endtrans %}
