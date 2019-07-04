@@ -1,0 +1,21 @@
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmode
+set keep-english-in-normal
+
+let mapleader="q"
+noremap <leader>k gt
+noremap <leader>c :nohl<CR>
+nnoremap <leader>gc :action GotoClass<CR>
+nnoremap <leader>ga :action GotoAction<CR>
+nnoremap <leader>fp :action ShowFilePath<CR>
+nnoremap <leader>pm :action ShowPopupMenu<CR>
+
+nmap <leader><leader>s :action KJumpAction<cr>
+nmap <leader><leader>w :action KJumpAction.Word0<cr>
+nmap <leader><leader>l :action KJumpAction.Line<cr>
+
+noremap U <C-r>
+noremap <C-l> zz

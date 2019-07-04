@@ -7,6 +7,8 @@ set nowb
 "关闭交换文件
 set noswapfile
 
+set paste
+
 "设置文件的代码形式 utf8
 set encoding=utf-8
 set termencoding=utf-8
@@ -36,6 +38,6 @@ call vundle#end()  " required
 filetype plugin indent on
 filetype plugin on
 
-"let g:airline_theme="gruvbox" 
+let g:airline_theme="gruvbox" 
 let g:airline_powerline_fonts = 1
 
