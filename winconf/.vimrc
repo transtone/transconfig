@@ -1,18 +1,41 @@
+" 开启行号
+set nu
+"关闭自动备份
+set nobackup
+set nowb
+
+"关闭交换文件
+set noswapfile
+
+"设置文件的代码形式 utf8
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,chinese,cp936
+
+"帮助语言
+set helplang=cn
+set iskeyword+=
+
+" vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/vimfiles/bundle/Vundle.vim
+" alternatively, pass a path where Vundle should install plugins
+call vundle#begin('~/vimfiles/bundle')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+call vundle#end()  " required
+
+filetype plugin indent on
 filetype plugin on
-filetype indent on
 
-:map <F5> :tabprevious<CR>
-:map <F6> :tabnext<CR>
-:map ^T :tabnew<CR>
-:imap <F5> <ESC>:tabprevious<CR>i
-:imap <F6> <ESC>:tabnext<CR>i
-:imap ^T <ESC>:tabnew<CR>i
+"let g:airline_theme="gruvbox" 
+let g:airline_powerline_fonts = 1
 
-set paste
-set clipboard+=unnamed
-
-set fileencodings=utf-8,chinese,latin-1
-" 设置文件编码检测类型及支持格式
-set fencs=utf-8,gbk,ucs-bom,gb18030,gb2312,cp936
-
-let &runtimepath.=',$HOME/.vim'

@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/zhou/.zsh'
+let g:netrw_dirhist_2='/mnt/d/home/zhou/.config/gtk-3.0'
+let g:netrw_dirhist_3='/mnt/d/srcCode/stone/yapi-docker/yapi'
+let g:netrw_dirhist_4='/mnt/d/home/zhou/.yarn'
