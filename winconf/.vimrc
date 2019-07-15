@@ -32,12 +32,15 @@ call vundle#begin('~/vimfiles/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'posva/vim-vue'
+Plugin 'vimacs'
 
 call vundle#end()  " required
 
 filetype plugin indent on
 filetype plugin on
 
-let g:airline_theme="gruvbox" 
+let g:airline_theme="wombat" 
 let g:airline_powerline_fonts = 1
 

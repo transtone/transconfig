@@ -1,14 +1,15 @@
 noremap <C-x> "+x
 noremap <C-c> "+y
-noremap <C-v> "+gP
+noremap <C-v> "+gp
+noremap <A-d> cw<Esc>
 noremap <C-x><C-s> :w<cr>
 inoremap <C-x> <Esc>"+xa
 inoremap <C-c> <Esc>"+ya
-inoremap <C-v> <Esc>"+gPa
-inoremap <C-x><C-s> <Esc>:w<cr>a
+inoremap <C-v> <Esc>"+gpa
+"inoremap <C-x><C-s> <Esc>:w<cr>a
 
-winpos 500 235
-set lines=40 columns=138 
+winpos 500 180
+set lines=38 columns=138 
 
 "vim的菜单乱码解决
 source $VIMRUNTIME/delmenu.vim
