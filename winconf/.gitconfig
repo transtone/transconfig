@@ -1,0 +1,29 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = transtone
+	email = zm3345@126.com
+[push]
+	default = simple
+
+[branch]  
+[core]
+	excludesfile = ~/.gitignore_global
+	ignorecase = false
+	autocrlf = input
+	filemode = false
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[protocol]
+#	version = 2
+[http]
+#	proxy = socks5://127.0.0.1:1086
+[https]
+#	proxy = socks5://127.0.0.1:1086
+[url "git@git.spiritframe.com:"]
+	insteadOf = https://git.spiritframe.com/
+[winUpdater]
+	recentlySeenVersion = 2.24.0.windows.2

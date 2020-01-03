@@ -21,7 +21,7 @@ language messages zh_CN.utf-8
 colorscheme github	"配色方案
 set helplang=cn		"设置中文帮助
 set history=500		"保留历史记录
-set guifont=等距更纱黑体\ T\ SC\ Medium:h10	"设置字体
+set guifont=等距更纱黑体\ T\ SC\ Semibold:h10	"设置字体
 set tabstop=4		"设置tab的跳数
 set expandtab
 set backspace=2 	"设置退格键可用

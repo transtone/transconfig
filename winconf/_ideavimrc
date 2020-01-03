@@ -4,6 +4,8 @@ set ignorecase
 set smartcase
 set showmode
 set keep-english-in-normal
+set ideajoin
+set clipboard-=ideaput
 
 let mapleader="q"
 noremap <leader>k gt

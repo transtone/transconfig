@@ -19,6 +19,18 @@ set fileencodings=ucs-bom,utf-8,chinese,cp936
 set helplang=cn
 set iskeyword+=
 
+nnoremap j gj
+nnoremap k gk
+nnoremap ^ g^
+noremap <A-j> <C-f>
+noremap <A-k> <C-b>
+
+let mapleader = "q"
+
+map <Leader><Leader>l <Plug>(easymotion-bd-jk)
+map <Leader>c :noh<CR>
+map <Leader>w :w<CR>
+
 " vundle
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -34,7 +46,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'posva/vim-vue'
+Plugin 'nginx.vim'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'vimacs'
+
 
 call vundle#end()  " required
 
